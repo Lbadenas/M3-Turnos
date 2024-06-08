@@ -1,6 +1,13 @@
+import "reflect-metadata";
+import { DB_PORT, PORT } from "./config/env";
 import server from "./server";
-import "dotenv/config";
+import { AppDataSource } from "./config/appDataSoruces";
 
-server.listen(process.env.PORT, () => {
-  console.log(`server escuchando en el http://localhost:${process.env.PORT}`);
-});
+AppDataSource.initialize()
+  .then(() => {
+    console.log(`Database Connected on port ${DB_PORT}`);
+    server.listen(PORT, () => {
+      console.log(`Server listening on http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => console.log(error));

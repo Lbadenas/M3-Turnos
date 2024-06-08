@@ -1,35 +1,35 @@
 import ICreateCredentialDto from "../dto/ICreateCredentialDto";
-import ICredential from "../interfaces/iCredential";
+import IValidateCredentialDto from "../dto/IValidateCredentialDto";
+import Credential from "../entities/Credential";
+import { credentialModel } from "../repositories";
 
-const credentials: ICredential[] = [
-  {
-    id: 1,
-    username: "marge",
-    password: "1234",
-  },
-];
-let credentialId: number = 10;
+// const credentials: ICredential[] = [
+//   {
+//     id: 1,
+//     username: "marge",
+//     password: "1234",
+//   },
+// ];
+// let credentialId: number = 10;
 
 export const createCredential = async (
   createCredentialDto: ICreateCredentialDto
-): Promise<ICredential> => {
-  const newCredential: ICredential = {
-    id: credentialId++,
-    username: createCredentialDto.username,
-    password: createCredentialDto.password,
-  };
-  credentials.push();
+): Promise<Credential> => {
+  // verificar que no exista el email
+  // esta funcion crea una  nueva credencial en la base de datos
+  const newCredential: Credential = credentialModel.create(createCredentialDto);
+  await credentialModel.save(newCredential);
   return newCredential;
 };
 
 export const validateCredential = async (
-  validateCredential: ICreateCredentialDto
-): Promise<ICredential> => {
+  validateCredential: IValidateCredentialDto
+): Promise<Credential> => {
   const { username, password } = validateCredential;
-  const foundCredential: ICredential | undefined = credentials.find(
-    (credential) => credential.username === username
-  );
-  if (!foundCredential) throw Error("usuario inexistente");
+  const foundCredential: Credential | null = await credentialModel.findOneBy({
+    username,
+  });
+  if (!foundCredential) throw Error("credenciales incorrectas");
   if (password !== foundCredential?.password)
     throw Error("Contraseña Incorrecta");
   return foundCredential;

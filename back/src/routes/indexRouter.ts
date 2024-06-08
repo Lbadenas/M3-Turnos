@@ -1,10 +1,10 @@
 import { Router } from "express";
 import usersRouter from "./userRouter";
-import turnsrouter from "./turnRouters";
+import appointmentRouters from "./appointmentRouters";
 
 const indexRouter = Router();
 
 indexRouter.use("/users", usersRouter);
-indexRouter.use("/turns", turnsrouter);
+indexRouter.use("/appointments", appointmentRouters);
 
 export default indexRouter;

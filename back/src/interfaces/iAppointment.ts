@@ -10,7 +10,7 @@ export enum IStatus {
   CANCELLED = "cancelled",
 }
 
-interface ITurn {
+interface IAppointment {
   id: number;
   date: string;
   time: string;
@@ -19,4 +19,4 @@ interface ITurn {
   description: string;
 }
 
-export default ITurn;
+export default IAppointment;
