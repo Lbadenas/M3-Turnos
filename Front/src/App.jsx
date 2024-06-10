@@ -1,9 +1,12 @@
-import Home from "./views/home/home";
+import Navbar from "./components/navbar/Navbar";
+import Appointment from "./views/appointment/appoinment.jsx";
 
 function App() {
   return (
     <div>
-      <Home />
+      <Navbar />
+      <Appointment />
+      {/* <Home /> */}
     </div>
   );
 }

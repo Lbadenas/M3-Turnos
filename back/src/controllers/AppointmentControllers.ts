@@ -6,7 +6,6 @@ import {
   getAppointmentByIdServices,
 } from "../services/appointmentsServices";
 import ICreateAppointmentDto from "../dto/ICreateAppointmentDto";
-import Appoitnment from "../entities/Appointment";
 import Appointment from "../entities/Appointment";
 
 export const getAllappointments = async (req: Request, res: Response) => {

@@ -1,4 +1,6 @@
 /**
+ACA PUEDO DARLE ESTILOS EN GENERAL A LA APP // USE UN RESET ACA CON NORMALIZE 
+
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
@@ -17,6 +19,8 @@ html {
 
 body {
   margin: 0;
+  background-color: #333333;
+  font-family: sans-serif;
 }
 
 /**

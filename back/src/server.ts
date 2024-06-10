@@ -5,8 +5,8 @@ import morgan from "morgan";
 
 const server = express();
 
-server.use(express.json());
 server.use(cors());
+server.use(express.json());
 server.use(morgan("dev"));
 server.use(router);
 

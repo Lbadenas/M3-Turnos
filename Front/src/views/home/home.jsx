@@ -1,11 +1,5 @@
-import Natbar from "../../components/natvar/Navbar";
-
 function Home() {
-  return (
-    <div>
-      <Natbar />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default Home;
