@@ -9,23 +9,25 @@ export default function Appointment() {
   useEffect(() => {
     axios
       .get(GETAPPOINTMENTSURL)
-      .then((response) => console.log(response.data))
+      .then((response) => response.data)
       .then((AppointmentsFromDB) => setAppointments(AppointmentsFromDB));
   }, []);
-
+  console.log(appointment);
   return (
     <div>
       <h1>MIS RESERVAS</h1>
-      {appointment.map((appointment) => (
-        <CardTurnos
-          key={appointment.id}
-          id={appointment.id}
-          date={appointment.date}
-          userId={appointment.userId}
-          status={appointment.status}
-          description={appointment.description}
-        />
-      ))}
+      {appointment.length > 0 &&
+        appointment.map((appoinment) => (
+          <CardTurnos
+            key={appoinment.id}
+            id={appoinment.id}
+            date={appoinment.date}
+            time={appoinment.time}
+            userId={appoinment.userId}
+            status={appoinment.status}
+            description={appoinment.description}
+          />
+        ))}
     </div>
   );
 }

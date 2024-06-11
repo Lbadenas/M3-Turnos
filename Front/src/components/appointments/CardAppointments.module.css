@@ -1,0 +1,26 @@
+.CardTurnos {
+  background-color: #f3ecec;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.CardTurnos:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.CardTurnos:focus {
+  outline: none;
+}
+
+.CardTurnos:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
