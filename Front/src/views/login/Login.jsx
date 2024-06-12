@@ -1,0 +1,94 @@
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+const LOGIN_URL = "http://localhost:3000/users/login";
+
+function Login() {
+  const initialState = {
+    username: "",
+    password: "",
+  };
+
+  //* ESTADOS
+  const [user, setUser] = useState(initialState);
+  const [errors, setErrors] = useState(initialState);
+
+  //* VALIDACIONES
+  const validateUser = ({ username, password }) => {
+    const errors = {};
+
+    if (!username) errors.username = "ingresar un username";
+    if (!password) errors.password = "ingresar un password";
+
+    return errors;
+  };
+
+  //*handlers
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUser({ ...user, [name]: value });
+    setErrors(validateUser({ ...user, [name]: value }));
+  };
+
+  const Navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const userData = {
+      username: user.username,
+      password: user.password,
+    };
+    axios
+      .post(LOGIN_URL, userData)
+      .then(({ data }) => {
+        console.log(data);
+        alert("usuario logeado");
+        setUser(initialState);
+        Navigate("/home");
+      })
+      .catch((error) => alert(error?.response?.data?.message));
+  };
+
+  const formData = [
+    { label: "Username", name: "username", type: "text" },
+    { label: "Password", name: "password", type: "password" },
+  ];
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <hr />
+      <form onSubmit={handleSubmit}>
+        {formData.map(({ label, name, type }) => (
+          <div key={name}>
+            <label>{label}</label>
+            <input
+              id={name}
+              name={name}
+              type={type}
+              value={user[name]}
+              placeholder={`ingresar ${label.toLowerCase()}`}
+              onChange={handleChange}
+            />
+            {errors[name] && (
+              <span style={{ color: "red" }}>{errors[name]}</span>
+            )}
+          </div>
+        ))}
+        <button
+          type="submit"
+          disabled={
+            Object.keys(errors).some((key) => errors[key]) ||
+            Object.values(user).some((value) => value === "")
+          }
+        >
+          inicia sesion
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default Login;

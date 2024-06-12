@@ -3,24 +3,44 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
+  margin: 10px;
+  max-width: 350px; /* Aumenta el ancho máximo de la tarjeta */
   font-family: Arial, sans-serif;
   transition: all 0.3s ease;
   cursor: pointer;
+  display: flex; /* Muestra los elementos internos en vertical */
+  flex-direction: column; /* Coloca los elementos uno debajo del otro */
+  align-items: center; /* Centra horizontalmente los elementos internos */
+}
+
+.CardTurnos img {
+  width: 120px; /* Aumenta el ancho de la imagen */
+  height: 120px; /* Aumenta la altura de la imagen */
+  border-radius: 50%; /* Hace que la imagen tenga bordes redondeados */
+  margin-bottom: 20px; /* Añade un espacio entre la imagen y los datos */
+}
+
+.datos {
+  display: flex; /* Muestra los elementos en vertical */
+  flex-direction: column; /* Coloca los elementos uno debajo del otro */
+  align-items: center; /* Centra horizontalmente los elementos */
+}
+
+.datos span {
+  margin-bottom: 10px; /* Añade un espacio entre los elementos */
+  text-align: center; /* Centra horizontalmente el texto */
+  font-size: 16px; /* Ajusta el tamaño de la fuente */
+  color: #333; /* Cambia el color de la fuente a un gris oscuro */
+  font-weight: bold; /* Agrega negrita a la fuente */
+  line-height: 1.5; /* Ajusta el espaciado entre líneas */
 }
 
 .CardTurnos:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05) translateY(-5px); /* Escala ligeramente y desplaza hacia arriba */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Añade una sombra más pronunciada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Agrega una transición suave */
 }
 
-.CardTurnos:focus {
-  outline: none;
-}
-
-.CardTurnos:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.CardTurnos:hover .datos span {
+  color: #0e0f0e; /* Cambia el color de los datos al pasar el cursor por encima */
 }

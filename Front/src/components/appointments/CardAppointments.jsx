@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "../appointments/CardAppointments.module.css";
+import logo from "../../assets/logo.png";
 
 export default function CardTurnos({
   date,
@@ -14,11 +15,17 @@ export default function CardTurnos({
   }
 
   return (
-    <div className={styles.CardTurnos}>
-      <span>{date}</span>
-      <span>{time}</span>
-      <span>{status}</span>
-      <span>{description}</span>
+    <div className={styles.turnosContainer}>
+      <div className={styles.CardTurnos}>
+        <img src={logo} alt="logo" />
+        <div className={styles.datos}>
+          {" "}
+          <span>{date}</span>
+          <span>{time}</span>
+          <span>{status}</span>
+          <span>{description}</span>
+        </div>
+      </div>
     </div>
   );
 }
