@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import styles from "../login/Login.module.css";
+import logo from "../../assets/logo.png";
 
 const LOGIN_URL = "http://localhost:3000/users/login";
 
@@ -57,14 +59,16 @@ function Login() {
   ];
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className={styles.formulario}>
+      <img src={logo} alt="logo" className={styles.logo} />
+      <h2 className={styles.letradelogin}>Login</h2>
       <hr />
       <form onSubmit={handleSubmit}>
         {formData.map(({ label, name, type }) => (
           <div key={name}>
             <label>{label}</label>
             <input
+              className={styles.input}
               id={name}
               name={name}
               type={type}
@@ -78,6 +82,7 @@ function Login() {
           </div>
         ))}
         <button
+          className={styles.boton}
           type="submit"
           disabled={
             Object.keys(errors).some((key) => errors[key]) ||

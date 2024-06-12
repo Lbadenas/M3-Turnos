@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import styles from "../register/Register.module.css";
+import logo from "../../assets/logo.png";
 
 const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const POSTUSER_URL = "http://localhost:3000/users/register";
@@ -52,7 +54,7 @@ function Register() {
       }
 
       if (age < 18) {
-        errors.birthdate = "Debes tener al menos 18 años para registrarte";
+        errors.birthdate = "mayores de 18 unicamente";
       }
     }
 
@@ -123,14 +125,16 @@ function Register() {
   ];
 
   return (
-    <div>
-      <h2>Registro</h2>
+    <div className={styles.registrocontainer}>
+      <img src={logo} alt="logo" className={styles.logo} />
+      <h2 className={styles.registroh2}>Registro</h2>
       <hr />
       <form onSubmit={handleSubmit}>
         {formData.map(({ label, name, type }) => (
           <div key={name}>
             <label>{label}</label>
             <input
+              className={styles.inputregistro}
               id={name}
               name={name}
               type={type}
@@ -144,6 +148,7 @@ function Register() {
           </div>
         ))}
         <button
+          className={styles.botonregistro}
           type="submit"
           disabled={
             Object.keys(errors).some((key) => errors[key]) ||
@@ -153,7 +158,9 @@ function Register() {
           Registrar
         </button>
 
-        <button onClick={handleReset}>Limpiar</button>
+        <button className={styles.botonregistro} onClick={handleReset}>
+          Limpiar
+        </button>
       </form>
     </div>
   );

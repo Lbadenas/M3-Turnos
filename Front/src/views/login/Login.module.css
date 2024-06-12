@@ -1,4 +1,4 @@
-.registrocontainer {
+.formulario {
   background-color: rgba(
     255,
     255,
@@ -10,30 +10,43 @@
   width: 350px; /* Ancho del formulario */
   margin: 0 auto; /* Centrar horizontalmente */
   text-align: center; /* Centrar el contenido del formulario */
-  margin-top: 50px; /* Espaciado desde la parte superior */
-  position: relative; /* Posición relativa para que el fondo no se desplace */
-  z-index: 1; /* Coloca el formulario sobre la imagen de fondo */
+  margin-top: 20px;
 }
 
-.registroh2 {
+.tarjeta {
+  background-color: #f3ecec; /* Color de fondo de la tarjeta */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 20px; /* Espaciado interno */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+.letradelogin {
   font-size: 24px; /* Tamaño de la fuente */
   font-weight: bold; /* Negrita */
   color: rgb(204, 109, 20);
   margin-bottom: 20px; /* Espacio inferior */
 }
 
-.inputregistro {
+.input {
   width: 80%; /* Ancho completo */
   padding: 10px; /* Espaciado interno */
-  margin-bottom: 15px; /* Espacio inferior */
-  border-radius: 5px; /* Bordes redondeados */
+  margin-bottom: 10px; /* Espacio inferior */
+  border-radius: 8px; /* Bordes redondeados */
   border: 1px solid #ccc; /* Borde con color gris */
-  font-weight: bold; /* Negrita */
+  font-weight: bold; /* Texto en negrita */
   font-size: 16px; /* Tamaño de la fuente */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  color: #333; /* Color del texto */
+  outline: none; /* Quita el resplandor al enfocar */
+  transition: border-color 0.3s ease; /* Transición suave al cambiar el color del borde */
 }
 
-.botonregistro {
+/* Estilo al enfocar el input */
+.input:focus {
+  color: rgb(204, 109, 20);
+}
+
+.boton {
   background-color: rgb(204, 109, 20); /* Color verde agua con transparencia */
   color: white; /* Color del texto */
   border: none; /* Quitar borde */
@@ -42,18 +55,18 @@
   cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
   transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
   margin-top: 20px; /* Espacio superior */
-  margin-right: 10px; /* Espaciado entre botones */
 }
 
-.botonregistro:hover {
-  background-color: rgb(
-    204,
-    109,
-    20
+.boton:hover {
+  background-color: rgba(
+    72,
+    201,
+    176,
+    1
   ); /* Cambiar color de fondo al pasar el cursor */
 }
 
-.botonregistro:disabled {
+.boton:disabled {
   background-color: #b0b0b0; /* Cambiar color de fondo cuando está deshabilitado */
   cursor: not-allowed; /* Cambiar cursor cuando está deshabilitado */
 }
