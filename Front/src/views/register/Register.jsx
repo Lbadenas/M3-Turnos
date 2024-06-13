@@ -2,11 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import styles from "../register/Register.module.css";
 import logo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom"; // Importar useNavigate desde react-router-dom
 
 const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const POSTUSER_URL = "http://localhost:3000/users/register";
 
 function Register() {
+  const navigate = useNavigate(); // Obtener la función navigate
   const initialState = {
     name: "",
     email: "",
@@ -101,6 +103,7 @@ function Register() {
         alert(data.message);
         setUser(initialState);
         setErrors({});
+        navigate("/login"); // Redirigir a /home después de un registro exitoso
       })
       .catch((error) => alert(error.message));
   };

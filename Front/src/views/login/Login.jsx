@@ -17,21 +17,17 @@ function Login() {
     password: "",
   };
 
-  //* ESTADOS
   const [user, setUser] = useState(initialState);
   const [errors, setErrors] = useState(initialState);
 
-  //* VALIDACIONES
   const validateUser = ({ username, password }) => {
     const errors = {};
 
-    if (!username) errors.username = "ingresar un username";
-    if (!password) errors.password = "ingresar un password";
+    if (!username) errors.username = "Ingrese un nombre de usuario";
+    if (!password) errors.password = "Ingrese una contraseña";
 
     return errors;
   };
-
-  //*handlers
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -49,9 +45,9 @@ function Login() {
       .post(LOGIN_URL, userData)
       .then(({ data }) => {
         dispatch(setUserData(data));
-        alert("usuario logeado");
+        alert("Usuario logueado correctamente");
         setUser(initialState);
-        navigate("/home");
+        navigate("/appointments"); // Redirige al usuario a la página de reservas
       })
       .catch((error) => alert(error?.response?.data?.message));
   };
@@ -76,7 +72,7 @@ function Login() {
               name={name}
               type={type}
               value={user[name]}
-              placeholder={`ingresar ${label.toLowerCase()}`}
+              placeholder={`Ingrese ${label.toLowerCase()}`}
               onChange={handleChange}
             />
             {errors[name] && (
@@ -92,7 +88,7 @@ function Login() {
             Object.values(user).some((value) => value === "")
           }
         >
-          inicia sesion
+          Iniciar sesión
         </button>
       </form>
     </div>

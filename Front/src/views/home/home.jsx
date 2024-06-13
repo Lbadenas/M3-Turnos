@@ -9,8 +9,8 @@ function Home() {
         En nuestra peluquería te ofrecemos los mejores servicios para el cuidado
         y estilo de tu cabello. ¡Déjanos transformar tu look!
       </p>
-      <Link to="/register">
-        <button className={styles.button}>Registrarse</button>
+      <Link to="/appointmentsform">
+        <button className={styles.button}>reserva</button>
       </Link>
     </div>
   );
