@@ -62,7 +62,7 @@ function Register() {
     if (!username) errors.username = "Ingresar un nombre de usuario";
     if (!password) errors.password = "Ingresar una contraseña";
     if (confirmPassword !== password)
-      errors.confirmPassword = "La contraseña no coincide";
+      errors.confirmPassword = "Contraseña no coincide";
 
     return errors;
   };
@@ -95,8 +95,9 @@ function Register() {
 
     axios
       .post(POSTUSER_URL, userData)
-      .then(({ data }) => {
+      .then(({ data, status }) => {
         console.log(data);
+        console.log(status, "esto es status");
         alert(data.message);
         setUser(initialState);
         setErrors({});

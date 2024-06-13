@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import {
+  CheckExistingUserService,
   CreateUserService,
   findUserCredentialId,
   getAllUsersServices,
@@ -41,6 +42,12 @@ export const registerUsers = async (
 ) => {
   try {
     const { name, email, birthdate, nDni, username, password } = req.body;
+    const existingUser: boolean = await CheckExistingUserService(
+      username,
+      email
+    );
+    if (existingUser)
+      return res.status(400).json({ message: "El usuario ya existe" });
     const newUser: User = await CreateUserService({
       name,
       email,

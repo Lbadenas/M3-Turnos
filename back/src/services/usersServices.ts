@@ -3,9 +3,10 @@ import ICreateUserDto from "../dto/ICreateUserDto";
 
 import { createCredential } from "./credentialsServices";
 import User from "../entities/User";
-import { userModel } from "../repositories";
+import { userModel, credentialModel } from "../repositories";
 
 import Credential from "../entities/Credential";
+import e from "cors";
 
 // const users: Iuser[] = [
 //   {
@@ -57,4 +58,18 @@ export const findUserCredentialId = async (
   });
   if (!user) throw new Error("Usuario no encontrado");
   return user;
+};
+
+export const CheckExistingUserService = async (
+  username: string,
+  email: string
+): Promise<boolean> => {
+  const existingEmail: User | null = await userModel.findOne({
+    where: { email },
+  });
+  const existingUsername: Credential | null = await credentialModel.findOne({
+    where: { username },
+  });
+  if (existingEmail || existingUsername) return true;
+  else return false;
 };
