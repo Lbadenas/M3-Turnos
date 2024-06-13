@@ -1,0 +1,20 @@
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Altura total de la pantalla */
+  background-color: #f0f0f0; /* Color de fondo */
+  color: #333; /* Color del texto */
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.contactDetails {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.contactDetails p {
+  margin: 10px 0;
+}

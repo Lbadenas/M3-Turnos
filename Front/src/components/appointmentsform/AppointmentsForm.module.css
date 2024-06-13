@@ -1,0 +1,69 @@
+/* CardAppointments.module.css */
+
+/* Estilos para el contenedor principal que centra el formulario */
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura al 100% del viewport */
+}
+
+/* Estilos para el formulario de reserva */
+.AppointmentForm {
+  background-color: #f3ecec;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px; /* Aumenta el ancho máximo del formulario */
+  width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  font-family: Arial, sans-serif;
+}
+
+.AppointmentForm h2 {
+  font-family: "Play", sans-serif;
+  text-align: center; /* Centra el título del formulario */
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input,
+.select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.select {
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}

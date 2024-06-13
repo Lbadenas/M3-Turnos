@@ -30,6 +30,11 @@ export default function Navbar() {
         <Link to="/contact">
           <span>CONTACTO</span>
         </Link>
+        {login && (
+          <Link to="/appointmentsform">
+            <span>Nueva Reserva</span>
+          </Link>
+        )}
       </div>
       <div className={styles.avatar}>
         <img src={avatar} alt="avatar" />
