@@ -3,27 +3,48 @@ import styles from "../appointments/CardAppointments.module.css";
 import logo from "../../assets/logo.png";
 
 export default function CardTurnos({
+  id,
   date,
   time,
   userId,
   status,
   description,
+  handleAppointmentCancel,
 }) {
   if (!date || !time || typeof userId !== "number" || !status || !description) {
     console.error("Error: Faltan o son incorrectas las props en CardTurnos");
     return null;
   }
 
+  const appointmentDate = new Date(date);
+  const formDate = `${appointmentDate.getDate()} / ${
+    appointmentDate.getMonth() + 1
+  } / ${appointmentDate.getFullYear()}`;
+
+  const handleClick = () => {
+    const confirmCancel = window.confirm(
+      `¿Desea cancelar el turno del día ${formDate} a las ${time}?`
+    );
+    if (confirmCancel) {
+      handleAppointmentCancel(id);
+    }
+  };
+
   return (
     <div className={styles.turnosContainer}>
       <div className={styles.CardTurnos}>
         <img src={logo} alt="logo" />
         <div className={styles.datos}>
-          {" "}
           <span>{date}</span>
           <span>{time}</span>
-          <span>{status}</span>
           <span>{description}</span>
+          {status === "active" ? (
+            <span className={styles.active} onClick={handleClick}>
+              Activo
+            </span>
+          ) : (
+            <span className={styles.cancelled}>Cancelado</span>
+          )}
         </div>
       </div>
     </div>
@@ -31,9 +52,11 @@ export default function CardTurnos({
 }
 
 CardTurnos.propTypes = {
+  id: PropTypes.number.isRequired,
   date: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired,
   status: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  handleAppointmentCancel: PropTypes.func.isRequired,
 };

@@ -1,12 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import styles from "../login/Login.module.css";
 import logo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../../redux/userSlice";
 
 const LOGIN_URL = "http://localhost:3000/users/login";
 
 function Login() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const initialState = {
     username: "",
     password: "",
@@ -34,8 +39,6 @@ function Login() {
     setErrors(validateUser({ ...user, [name]: value }));
   };
 
-  const Navigate = useNavigate();
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const userData = {
@@ -45,10 +48,10 @@ function Login() {
     axios
       .post(LOGIN_URL, userData)
       .then(({ data }) => {
-        console.log(data);
+        dispatch(setUserData(data));
         alert("usuario logeado");
         setUser(initialState);
-        Navigate("/home");
+        navigate("/home");
       })
       .catch((error) => alert(error?.response?.data?.message));
   };

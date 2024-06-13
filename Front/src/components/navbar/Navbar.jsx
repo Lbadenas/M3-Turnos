@@ -1,10 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import logo from "../../assets/logo.png";
 import styles from "../navbar/Navbar.module.css";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
-  const { pathname } = useLocation();
+  const login = useSelector((state) => state.actualUser.userData.login);
 
   return (
     <div className={styles.navbarContainer}>
@@ -20,13 +21,11 @@ export default function Navbar() {
           <span>SERVICIOS</span>
         </Link>
 
-        {pathname !== "/" &&
-        pathname !== "/login" &&
-        pathname !== "/register" ? (
+        {login && (
           <Link to="/appointment">
-            <span>RESERVAR</span>
+            <span>RESERVAS</span>
           </Link>
-        ) : null}
+        )}
 
         <Link to="/contact">
           <span>CONTACTO</span>
