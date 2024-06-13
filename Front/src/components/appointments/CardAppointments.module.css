@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
 .CardTurnos {
   background-color: #f3ecec;
   border-radius: 10px;
@@ -11,6 +13,7 @@
   display: flex; /* Muestra los elementos internos en vertical */
   flex-direction: column; /* Coloca los elementos uno debajo del otro */
   align-items: center; /* Centra horizontalmente los elementos internos */
+  font-family: "Play", sans-serif;
 }
 
 .CardTurnos img {
