@@ -6,6 +6,7 @@ import Register from "./views/register/Register";
 import Home from "./views/home/home";
 import Landing from "./views/landing/Landing";
 import ErrorPage from "./views/errorPage/ErrorPage";
+import AppointmentForm from "./components/appointmentsform/AppointmentsForm";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/appointment" element={<Appointment />} />
+        <Route path="/appointmentsform" element={<AppointmentForm />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
