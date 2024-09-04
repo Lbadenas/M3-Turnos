@@ -1,5 +1,4 @@
 /* Ajustes al contenedor de tarjetas */
-
 .turnosContainer {
   display: flex;
   flex-wrap: wrap;
@@ -12,11 +11,12 @@
   box-sizing: border-box; /* Incluye padding y border en el ancho y alto total */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
 }
+
 /* Ajustes a las tarjetas */
 .CardTurnos {
-  background-color: #f3ecec;
+  background-color: #333; /* Fondo oscuro para la tarjeta */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para resaltar */
   padding: 20px;
   font-family: "Play", sans-serif;
   transition: all 0.3s ease;
@@ -28,6 +28,10 @@
   width: 100%; /* Asegura que la tarjeta ocupe todo el ancho disponible dentro de la columna */
   max-width: 250px; /* Ancho máximo de la tarjeta */
   height: auto; /* Altura automática basada en el contenido */
+  background-image: url("https://static.vecteezy.com/system/resources/previews/013/277/783/non_2x/stylish-black-wavy-background-for-business-cards-presentations-banners-etc-vector.jpg");
+  background-size: cover; /* Ajusta la imagen para cubrir el área de la tarjeta */
+  background-position: center; /* Centra la imagen en la tarjeta */
+  color: white; /* Color de texto blanco para resaltar */
 }
 
 /* Asegura que las imágenes se ajusten adecuadamente */
@@ -43,6 +47,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1; /* Asegura que el texto esté por encima de la imagen de fondo */
 }
 
 /* Ajusta el estilo de los datos */
@@ -50,7 +55,7 @@
   margin-bottom: 10px; /* Espacio entre los elementos */
   text-align: center; /* Centra el texto */
   font-size: 16px; /* Tamaño de la fuente */
-  color: #333; /* Color de la fuente */
+  color: #fff; /* Color de la fuente blanco */
   font-weight: bold; /* Negrita */
   line-height: 1.5; /* Espaciado entre líneas */
 }
@@ -58,17 +63,17 @@
 /* Efectos de hover para la tarjeta */
 .CardTurnos:hover {
   transform: scale(1.05) translateY(-5px); /* Escala y desplaza hacia arriba */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
 .CardTurnos:hover .datos span {
-  color: #0e0f0e; /* Color del texto al pasar el cursor */
+  color: #ffcc00; /* Color del texto al pasar el cursor */
 }
 
 /* Estilos para el estado activo */
 .active {
-  background-color: #28a745; /* Fondo verde */
+  background-color: #1e7e34; /* Fondo verde oscuro */
   color: white; /* Texto blanco */
   border-radius: 5px; /* Bordes redondeados */
   padding: 10px 20px; /* Espaciado interno */
@@ -79,14 +84,14 @@
 
 /* Efecto de hover para el estado activo */
 .active:hover {
-  background-color: #218838; /* Color verde más oscuro */
+  background-color: #155d27; /* Color verde aún más oscuro */
   transform: scale(1.05); /* Escala el botón */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra sutil más pronunciada */
 }
 
 /* Estilos para el estado cancelado */
 .cancelled {
-  background-color: #dc3545; /* Fondo rojo */
+  background-color: #c82333; /* Fondo rojo oscuro */
   color: white; /* Texto blanco */
   border-radius: 5px; /* Bordes redondeados */
   padding: 10px 20px; /* Espaciado interno */
@@ -97,7 +102,7 @@
 
 /* Efecto de hover para el estado cancelado */
 .cancelled:hover {
-  background-color: #c82333; /* Color rojo más oscuro */
+  background-color: #a71d2a; /* Color rojo más oscuro */
   transform: scale(1.05); /* Escala el botón */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra sutil más pronunciada */
 }
