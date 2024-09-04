@@ -1,53 +1,67 @@
-@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+/* CardAppointments.module.css */
+.turnosContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Muestra 5 tarjetas por fila */
+  gap: 16px; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centra las tarjetas horizontalmente si hay espacio extra */
+  padding: 16px; /* Espacio alrededor del contenedor */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  grid-auto-rows: minmax(150px, auto); /* Ajusta la altura de las filas */
+}
 
 .CardTurnos {
   background-color: #f3ecec;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin: 10px;
-  max-width: 350px; /* Aumenta el ancho máximo de la tarjeta */
-  font-family: Arial, sans-serif;
+  font-family: "Play", sans-serif;
   transition: all 0.3s ease;
   cursor: pointer;
-  display: flex; /* Muestra los elementos internos en vertical */
-  flex-direction: column; /* Coloca los elementos uno debajo del otro */
-  align-items: center; /* Centra horizontalmente los elementos internos */
-  font-family: "Play", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 350px; /* Ancho máximo de la tarjeta */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total de la tarjeta */
 }
 
+/* Asegura que las imágenes se ajusten adecuadamente */
 .CardTurnos img {
-  width: 120px; /* Aumenta el ancho de la imagen */
-  height: 120px; /* Aumenta la altura de la imagen */
-  border-radius: 50%; /* Hace que la imagen tenga bordes redondeados */
-  margin-bottom: 20px; /* Añade un espacio entre la imagen y los datos */
+  width: 120px; /* Ancho de la imagen */
+  height: 120px; /* Altura de la imagen */
+  border-radius: 50%; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espacio entre la imagen y los datos */
 }
 
+/* Ajusta el contenedor de datos */
 .datos {
-  display: flex; /* Muestra los elementos en vertical */
-  flex-direction: column; /* Coloca los elementos uno debajo del otro */
-  align-items: center; /* Centra horizontalmente los elementos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Ajusta el estilo de los datos */
 .datos span {
-  margin-bottom: 10px; /* Añade un espacio entre los elementos */
-  text-align: center; /* Centra horizontalmente el texto */
-  font-size: 16px; /* Ajusta el tamaño de la fuente */
-  color: #333; /* Cambia el color de la fuente a un gris oscuro */
-  font-weight: bold; /* Agrega negrita a la fuente */
-  line-height: 1.5; /* Ajusta el espaciado entre líneas */
+  margin-bottom: 10px; /* Espacio entre los elementos */
+  text-align: center; /* Centra el texto */
+  font-size: 16px; /* Tamaño de la fuente */
+  color: #333; /* Color de la fuente */
+  font-weight: bold; /* Negrita */
+  line-height: 1.5; /* Espaciado entre líneas */
 }
 
+/* Efectos de hover para la tarjeta */
 .CardTurnos:hover {
-  transform: scale(1.05) translateY(-5px); /* Escala ligeramente y desplaza hacia arriba */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Añade una sombra más pronunciada */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Agrega una transición suave */
+  transform: scale(1.05) translateY(-5px); /* Escala y desplaza hacia arriba */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
 .CardTurnos:hover .datos span {
-  color: #0e0f0e; /* Cambia el color de los datos al pasar el cursor por encima */
+  color: #0e0f0e; /* Color del texto al pasar el cursor */
 }
 
+/* Estilos para el estado activo */
 .active {
   background-color: #28a745; /* Fondo verde */
   color: white; /* Texto blanco */
@@ -60,9 +74,9 @@
 
 /* Efecto de hover para el estado activo */
 .active:hover {
-  background-color: #218838; /* Color verde más oscuro al pasar el cursor */
-  transform: scale(1.05); /* Escala ligeramente el botón */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
+  background-color: #218838; /* Color verde más oscuro */
+  transform: scale(1.05); /* Escala el botón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }
 
 /* Estilos para el estado cancelado */
@@ -71,14 +85,14 @@
   color: white; /* Texto blanco */
   border-radius: 5px; /* Bordes redondeados */
   padding: 10px 20px; /* Espaciado interno */
-  cursor: not-allowed; /* Cambia el cursor para indicar que no es interactivo */
+  cursor: not-allowed; /* Cursor para indicar que no es interactivo */
   transition: background-color 0.3s ease, transform 0.3s ease,
     box-shadow 0.3s ease; /* Transiciones suaves */
 }
 
 /* Efecto de hover para el estado cancelado */
 .cancelled:hover {
-  background-color: #c82333; /* Color rojo más oscuro al pasar el cursor */
-  transform: scale(1.05); /* Escala ligeramente el botón */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
+  background-color: #c82333; /* Color rojo más oscuro */
+  transform: scale(1.05); /* Escala el botón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }

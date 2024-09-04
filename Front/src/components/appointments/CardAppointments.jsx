@@ -29,7 +29,6 @@ export default function CardTurnos({
       handleAppointmentCancel(id);
     }
   };
-
   return (
     <div className={styles.turnosContainer}>
       <div className={styles.CardTurnos}>

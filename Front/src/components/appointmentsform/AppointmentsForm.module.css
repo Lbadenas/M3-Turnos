@@ -6,6 +6,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh; /* Ajusta la altura al 100% del viewport */
+  margin: 0; /* Elimina márgenes adicionales */
+  padding: 0; /* Elimina relleno adicional */
 }
 
 /* Estilos para el formulario de reserva */
