@@ -1,4 +1,3 @@
-import Iuser from "../interfaces/iUser";
 import ICreateUserDto from "../dto/ICreateUserDto";
 
 import { createCredential } from "./credentialsServices";
@@ -6,20 +5,6 @@ import User from "../entities/User";
 import { userModel, credentialModel } from "../repositories";
 
 import Credential from "../entities/Credential";
-import e from "cors";
-
-// const users: Iuser[] = [
-//   {
-//     id: 1,
-//     name: "Marge",
-//     email: "marge@gmail.com",
-//     birthdate: "1980-01-01",
-//     nDni: "34989887",
-//     credentialId: 1,
-//   },
-// ];
-
-// let id: number = 10;
 
 export const getAllUsersServices = async (): Promise<User[]> => {
   const allUsers: User[] = await userModel.find({
@@ -51,7 +36,7 @@ export const CreateUserService = async (createUserDto: ICreateUserDto) => {
 };
 
 export const findUserCredentialId = async (
-  credentialId: number
+  credentialId: number,
 ): Promise<User> => {
   const user: User | null = await userModel.findOneBy({
     credential: { id: credentialId },
@@ -62,7 +47,7 @@ export const findUserCredentialId = async (
 
 export const CheckExistingUserService = async (
   username: string,
-  email: string
+  email: string,
 ): Promise<boolean> => {
   const existingEmail: User | null = await userModel.findOne({
     where: { email },
