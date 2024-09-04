@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: black; /* Color de fondo del navbar */
-  color: rgb(204, 109, 20); /* Color del texto */
+  color: rgb(170, 90, 15); /* Color del texto de la navbar */
   padding: 10px 20px; /* Espaciado interno del navbar */
   font-family: "Play", sans-serif; /* Fuente de la navbar */
 }
@@ -33,14 +33,14 @@
 
 .links a {
   text-decoration: none; /* Quitar subrayado de los enlaces */
-  color: rgb(204, 109, 20); /* Color del texto de los enlaces */
+  color: rgb(170, 90, 15); /* Color del texto de los enlaces */
   padding: 10px 15px; /* Espaciado interno de los enlaces */
   border-radius: 5px; /* Bordes redondeados en los enlaces */
   transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
 }
 
 .links a:hover {
-  background-color: rgb(204, 109, 20); /* Color de fondo al pasar el cursor */
+  background-color: #5c4033; /* Color caoba oscuro para el fondo en hover */
   color: white; /* Color del texto al pasar el cursor */
   cursor: pointer; /* Cambiar el cursor al pasar sobre el enlace */
 }
@@ -59,4 +59,27 @@
   flex-direction: row;
   align-items: center;
   gap: 1em; /* Espacio entre los botones */
+}
+
+.navbarButtons button {
+  background-color: #5c4033; /* Color caoba oscuro que se asemeja a la madera */
+  color: white;
+  padding: 15px 30px; /* Aumenta el padding para un botón más grande */
+  border: none;
+  border-radius: 25px; /* Bordes más redondeados para un look moderno */
+  font-size: 18px;
+  font-family: "Play", sans-serif; /* Asegura que la tipografía sea consistente */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Agrega una transición de transformación */
+  margin-top: 20px; /* Espacio arriba del botón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra para darle un efecto de profundidad */
+}
+
+.navbarButtons button:hover {
+  background-color: #4a2c1d; /* Un tono caoba más oscuro para el hover */
+  transform: translateY(-2px); /* Añade un efecto de desplazamiento sutil */
+}
+
+.navbarButtons button:active {
+  transform: translateY(1px); /* Efecto de pulsación al hacer clic */
 }

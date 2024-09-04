@@ -1,11 +1,11 @@
 /* Estilos para la página de error 404 */
 .errorContainer {
   background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Fondo blanco con transparencia */
+    0,
+    0,
+    0,
+    0.7
+  ); /* Fondo negro con 70% de transparencia */
   border-radius: 10px; /* Bordes redondeados */
   padding: 30px; /* Espaciado interno */
   width: 400px; /* Ancho del contenedor aumentado */
@@ -19,14 +19,14 @@
   font-family: "Play", sans-serif;
   font-size: 36px; /* Tamaño de la fuente aumentado */
   font-weight: bold; /* Negrita */
-  color: rgb(204, 109, 20); /* Color del texto */
+  color: #fff; /* Color del texto blanco */
   margin-bottom: 30px; /* Espacio inferior aumentado */
 }
 
 .errorContainer p {
   font-family: "Play", sans-serif;
   font-size: 20px; /* Tamaño de la fuente aumentado */
-  color: rgb(204, 109, 20); /* Color del texto */
+  color: #fff; /* Color del texto blanco */
   margin-bottom: 40px; /* Espacio inferior aumentado para separar del botón */
 }
 
@@ -35,11 +35,12 @@
   color: white; /* Color del texto */
   border: none; /* Quitar borde */
   border-radius: 5px; /* Bordes redondeados */
-  padding: 15px 30px; /* Espaciado interno aumentado */
+  padding: 15px 30px; /* Espaciado interno */
   cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
   transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
-  font-size: 20px; /* Tamaño de la fuente aumentado */
-  margin-top: 50px; /* Espacio superior aumentado para separar más del texto */
+  font-size: 20px; /* Tamaño de la fuente */
+  margin-top: 50px; /* Espacio superior */
+  text-decoration: none; /* Evitar subrayado */
 }
 
 .errorButton:hover {
@@ -48,6 +49,7 @@
     90,
     15
   ); /* Cambiar color de fondo al pasar el cursor */
+  text-decoration: none; /* Asegurar que no se subraye al pasar el cursor */
 }
 
 /* Responsividad */

@@ -51,7 +51,7 @@
 }
 
 .boton {
-  background-color: rgb(204, 109, 20); /* Color verde agua con transparencia */
+  background-color: #5c4033; /* Color caoba oscuro que se asemeja a la madera */
   color: white; /* Color del texto */
   border: none; /* Quitar borde */
   border-radius: 5px; /* Bordes redondeados */
@@ -62,12 +62,7 @@
 }
 
 .boton:hover {
-  background-color: rgba(
-    72,
-    201,
-    176,
-    1
-  ); /* Cambiar color de fondo al pasar el cursor */
+  background-color: #4a2c1d; /* Un tono caoba más oscuro para el hover */ /* Un tono caoba más oscuro para el hover */ /* Cambiar color de fondo al pasar el cursor */
 }
 
 .boton:disabled {

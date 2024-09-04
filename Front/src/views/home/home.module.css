@@ -21,28 +21,37 @@
 }
 
 .welcomeText {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 28px; /* Tamaño de fuente reducido */
+  margin-bottom: 15px; /* Espacio inferior reducido */
+  text-align: center; /* Centrar el texto */
 }
 
 .description {
-  font-size: 24px;
-  max-width: 600px;
-  margin-bottom: 30px; /* Espacio debajo de la descripción */
+  font-size: 18px; /* Tamaño de fuente reducido */
+  max-width: 500px; /* Reducir el ancho máximo */
+  margin: 0 auto 20px auto; /* Centrar horizontalmente y ajustar margen inferior */
+  text-align: center; /* Centrar el texto */
 }
 
 .button {
-  background-color: #007bff;
+  background-color: #5c4033; /* Color caoba oscuro que se asemeja a la madera */
   color: white;
   padding: 15px 30px; /* Aumenta el padding para un botón más grande */
   border: none;
-  border-radius: 5px;
+  border-radius: 25px; /* Bordes más redondeados para un look moderno */
   font-size: 18px;
+  font-family: "Play", sans-serif; /* Asegura que la tipografía sea consistente */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Agrega una transición de transformación */
   margin-top: 20px; /* Espacio arriba del botón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra para darle un efecto de profundidad */
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #4a2c1d; /* Un tono caoba más oscuro para el hover */
+  transform: translateY(-2px); /* Añade un efecto de desplazamiento sutil */
+}
+
+.button:active {
+  transform: translateY(1px); /* Efecto de pulsación al hacer clic */
 }

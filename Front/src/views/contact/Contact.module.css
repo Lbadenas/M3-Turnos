@@ -1,11 +1,12 @@
 /* Estilos para el contenedor del formulario */
+
 .contactContainer {
   background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Fondo blanco con transparencia */
+    0,
+    0,
+    0,
+    0.7
+  ); /* Fondo negro con 70% de transparencia */
   border-radius: 10px; /* Bordes redondeados */
   padding: 20px; /* Espaciado interno */
   width: 350px; /* Ancho del formulario */
@@ -20,7 +21,7 @@
   font-family: "Play", sans-serif;
   font-size: 24px; /* Tamaño de la fuente */
   font-weight: bold; /* Negrita */
-  color: rgb(204, 109, 20); /* Color del texto */
+  color: #fff; /* Color del texto blanco */
   margin-bottom: 20px; /* Espacio inferior */
 }
 
@@ -33,7 +34,7 @@ label {
   font-family: "Play", sans-serif;
   font-size: 16px; /* Tamaño de la fuente */
   font-weight: bold; /* Negrita */
-  color: rgb(204, 109, 20); /* Color del texto */
+  color: #fff; /* Color del texto blanco */
   margin-bottom: 5px; /* Espacio inferior entre el label y el input */
   text-align: left; /* Alinear el texto a la izquierda */
 }
@@ -49,6 +50,13 @@ textarea {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
   font-family: "Play", sans-serif;
   margin-bottom: 15px; /* Espacio inferior entre inputs */
+  color: #000; /* Color del texto negro */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Fondo blanco con 90% de transparencia */
 }
 
 textarea {
