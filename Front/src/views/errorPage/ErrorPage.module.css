@@ -1,18 +1,26 @@
 /* Estilos para la página de error 404 */
 .errorContainer {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* Fondo negro con 70% de transparencia */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 30px; /* Espaciado interno */
-  width: 400px; /* Ancho del contenedor aumentado */
-  margin: 50px auto; /* Centrar horizontalmente y agregar margen superior */
-  text-align: center; /* Centrar el contenido */
-  position: relative; /* Posición relativa para que el fondo no se desplace */
-  z-index: 1; /* Colocar el contenedor sobre otros elementos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro transparente */
+  background-image: url("https://images.unsplash.com/photo-1634449862841-8c6e970117e5?q=80&w=1883&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.errorContent {
+  background-color: rgba(33, 33, 33, 0.8); /* Fondo gris oscuro transparente */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+  margin-bottom: 50px; /* Espacio debajo del contenido del error */
 }
 
 .errorContainer h1 {
@@ -31,7 +39,7 @@
 }
 
 .errorButton {
-  background-color: rgb(204, 109, 20); /* Color de fondo */
+  background-color: #5c4033; /* Color de fondo */
   color: white; /* Color del texto */
   border: none; /* Quitar borde */
   border-radius: 5px; /* Bordes redondeados */
@@ -39,16 +47,11 @@
   cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
   transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
   font-size: 20px; /* Tamaño de la fuente */
-  margin-top: 50px; /* Espacio superior */
   text-decoration: none; /* Evitar subrayado */
 }
 
 .errorButton:hover {
-  background-color: rgb(
-    170,
-    90,
-    15
-  ); /* Cambiar color de fondo al pasar el cursor */
+  background-color: #4a2c1d; /* Cambiar color de fondo al pasar el cursor */
   text-decoration: none; /* Asegurar que no se subraye al pasar el cursor */
 }
 
@@ -58,6 +61,11 @@
     width: 90%; /* Ancho del contenedor adaptado para pantallas pequeñas */
     padding: 20px; /* Reducir espaciado interno en pantallas pequeñas */
     margin: 30px auto; /* Ajustar margen superior en pantallas pequeñas */
+  }
+
+  .errorContent {
+    width: 100%; /* Asegura que el contenido se ajuste al ancho disponible */
+    padding: 15px; /* Reducir espaciado interno en pantallas pequeñas */
   }
 
   .errorContainer h1 {
@@ -82,6 +90,11 @@
     width: 95%; /* Ancho del contenedor adaptado aún más para pantallas muy pequeñas */
     padding: 15px; /* Reducir espaciado interno en pantallas muy pequeñas */
     margin: 20px auto; /* Ajustar margen superior en pantallas muy pequeñas */
+  }
+
+  .errorContent {
+    width: 100%; /* Asegura que el contenido se ajuste al ancho disponible */
+    padding: 10px; /* Reducir espaciado interno en pantallas muy pequeñas */
   }
 
   .errorContainer h1 {

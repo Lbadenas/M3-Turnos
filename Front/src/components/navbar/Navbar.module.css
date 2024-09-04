@@ -3,55 +3,70 @@
 .navbarContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center; /* Centra el contenido horizontalmente */
   align-items: center;
-  background-color: black; /* Color de fondo del navbar */
-  color: rgb(170, 90, 15); /* Color del texto de la navbar */
+  background: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /* Fondo transparente para ver la imagen de fondo */
+  color: rgb(255, 255, 255); /* Color del texto de la navbar */
   padding: 10px 20px; /* Espaciado interno del navbar */
   font-family: "Play", sans-serif; /* Fuente de la navbar */
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  width: 80px; /* Ancho del logo */
-  height: 80px; /* Altura del logo igual al ancho para mantener la proporción */
-  border-radius: 50%; /* Bordes redondeados en el logo */
-  margin-bottom: 10px; /* Margen inferior del logo */
-}
-
-.links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1em; /* Espacio entre los enlaces */
-  font-size: 1.2em; /* Tamaño de fuente */
-}
-
-.links a {
-  text-decoration: none; /* Quitar subrayado de los enlaces */
-  color: rgb(170, 90, 15); /* Color del texto de los enlaces */
-  padding: 10px 15px; /* Espaciado interno de los enlaces */
-  border-radius: 5px; /* Bordes redondeados en los enlaces */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
-}
-
-.links a:hover {
-  background-color: #5c4033; /* Color caoba oscuro para el fondo en hover */
-  color: white; /* Color del texto al pasar el cursor */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre el enlace */
+  position: fixed; /* Fija el navbar en la parte superior */
+  width: 100%; /* Asegura que el navbar ocupe todo el ancho */
+  top: 0; /* Coloca el navbar en la parte superior de la página */
+  left: 0; /* Alinea el navbar al borde izquierdo de la página */
+  z-index: 1000; /* Asegura que el navbar esté encima de otros elementos */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .navbarContent {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
-  justify-content: center;
-  gap: 2em; /* Espacio entre el logo y los botones */
+  justify-content: center; /* Centra el contenido en el navbar */
+  width: 100%; /* Asegura que el contenido ocupe todo el ancho */
+  max-width: 1200px; /* Define un ancho máximo para el navbar */
+}
+
+.linksWrapper {
+  background: rgba(128, 128, 128, 0.5); /* Fondo gris semi-transparente */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno del contenedor */
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2em; /* Espacio entre los enlaces */
+  font-size: 1.2em; /* Tamaño de fuente */
+}
+
+.links a {
+  text-decoration: none; /* Quitar subrayado de los enlaces por defecto */
+  color: white; /* Color del texto de los enlaces */
+  padding: 10px 15px; /* Espaciado interno de los enlaces */
+  border-radius: 5px; /* Bordes redondeados en los enlaces */
+  transition: color 0.3s ease, text-decoration 0.3s ease,
+    background-color 0.3s ease; /* Transición suave */
+}
+
+.links a:hover {
+  color: #5c4033; /* Color caoba oscuro al pasar el cursor */
+  text-decoration: underline; /* Subrayar los enlaces al pasar el cursor */
+}
+
+.links a:active {
+  color: #7b4f2b; /* Un tono marrón más cálido para el clic */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Fondo blanco semitransparente al hacer clic */
 }
 
 .navbarButtons {
@@ -59,6 +74,7 @@
   flex-direction: row;
   align-items: center;
   gap: 1em; /* Espacio entre los botones */
+  margin-left: 2em; /* Espacio a la izquierda de los botones */
 }
 
 .navbarButtons button {
@@ -81,5 +97,6 @@
 }
 
 .navbarButtons button:active {
+  background-color: #7b4f2b; /* Un tono marrón más cálido y vivo para el clic */
   transform: translateY(1px); /* Efecto de pulsación al hacer clic */
 }
