@@ -1,0 +1,76 @@
+/* appointment.module.css */
+
+.title {
+  background-color: rgb(204, 109, 20); /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  border: none; /* Quitar borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 12px 24px; /* Espaciado interno (ajustado para más tamaño) */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves para color de fondo y escalado */
+  margin-top: 20px; /* Espacio superior */
+  font-size: 16px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  text-align: center; /* Centrar el texto dentro del botón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para el botón */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en múltiples líneas */
+  gap: 16px; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  padding: 20px; /* Espaciado alrededor del contenedor */
+}
+
+.card {
+  background-color: #f3ecec;
+  border-radius: 10px; /* Bordes más redondeados */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  padding: 15px; /* Espacio interno más pequeño */
+  width: 30%; /* Ancho de la tarjeta ajustado para mostrar 3 en una fila */
+  font-family: "Play", sans-serif;
+  transition: all 0.3s ease; /* Transición para efectos suaves */
+  cursor: pointer;
+  display: flex; /* Muestra los elementos internos en vertical */
+  flex-direction: column; /* Coloca los elementos uno debajo del otro */
+  align-items: center; /* Centra horizontalmente los elementos internos */
+}
+
+/* Ajuste para imágenes dentro de las tarjetas */
+.card img {
+  width: 100px; /* Ancho de la imagen más pequeño */
+  height: 100px; /* Altura de la imagen más pequeño */
+  border-radius: 50%; /* Bordes redondeados */
+  margin-bottom: 15px; /* Espacio entre la imagen y los datos */
+}
+
+.datos {
+  display: flex; /* Muestra los elementos en vertical */
+  flex-direction: column; /* Coloca los elementos uno debajo del otro */
+  align-items: center; /* Centra horizontalmente los elementos */
+}
+
+.datos span {
+  margin-bottom: 8px; /* Espacio más pequeño entre los elementos */
+  text-align: center; /* Centra el texto */
+  font-size: 14px; /* Tamaño de la fuente más pequeño */
+  color: #333; /* Color de la fuente */
+  font-weight: bold; /* Negrita */
+  line-height: 1.4; /* Espaciado entre líneas más pequeño */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Escala ligeramente la tarjeta */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+.card:hover .datos span {
+  color: #007bff; /* Color del texto al pasar el cursor */
+}
+
+.noAppointments {
+  text-align: center; /* Centra el mensaje de no reservas */
+  font-size: 16px; /* Tamaño de la fuente */
+  color: #666; /* Color de la fuente */
+}

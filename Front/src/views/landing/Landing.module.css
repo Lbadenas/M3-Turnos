@@ -1,66 +1,77 @@
-.landingContainer {
+/* Estilos para el contenedor principal */
+.homeContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f3ecec; /* Color de fondo */
+  text-align: center;
+  color: #fff;
   font-family: Arial, sans-serif;
+  padding: 20px;
+  overflow: hidden; /* Ocultar cualquier contenido que sobresalga */
 }
 
+/* Estilos para el video de fondo */
+.videoBackground {
+  position: absolute; /* Posiciona el video detrás del contenido */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Asegura que el video esté detrás del contenido */
+}
+
+.videoBackground video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra el contenedor sin deformarse */
+}
+
+/* Estilos para el contenedor del contenido */
+.landingContainer {
+  position: relative; /* Asegura que el contenido esté por encima del video */
+  z-index: 1; /* Asegura que el contenido esté por encima del video */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con 70% de opacidad */
+  padding: 30px; /* Aumenta el espaciado interno */
+  border-radius: 10px; /* Bordes redondeados opcionales */
+  max-width: 600px; /* Ancho máximo del contenedor */
+  width: 100%; /* Ajusta el ancho al 100% del contenedor padre */
+  box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
+}
+
+/* Estilos para el título */
 .landingTitle {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 32px; /* Tamaño de la fuente ajustado */
+  font-weight: bold;
+  margin-bottom: 30px; /* Espacio inferior incrementado */
 }
 
+/* Estilos para el subtítulo */
 .landingSubtitle {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 20px; /* Tamaño de la fuente ajustado */
+  margin-bottom: 30px; /* Espacio inferior incrementado */
 }
 
+/* Estilos para el contenedor de botones */
 .buttonContainer {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Espacio inferior incrementado */
 }
 
 .button {
-  background-color: #007bff;
+  background-color: rgb(204, 109, 20); /* Color del botón */
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px; /* Ajusta el espaciado interno del botón */
   border: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 16px;
+  text-decoration: none;
   cursor: pointer;
-  margin: 0 10px;
   transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #0056b3;
-}
-.homeContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-image: url("https://www.ufv.es/cetys/blog/wp-content/uploads/2023/04/peluqueria-peluqueria-mujeres-trabajos-peluqueria-campana-profesional-2048x1365.jpg"); /* URL de la imagen de fondo */
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  color: #fff; /* Color del texto */
-  font-family: Arial, sans-serif;
-  padding: 20px;
-}
-
-.landingContainer {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); /* Fondo semi-transparente para mejorar la legibilidad del texto */
-  padding: 20px;
-  border-radius: 10px;
+  background-color: rgb(170, 90, 15);
 }

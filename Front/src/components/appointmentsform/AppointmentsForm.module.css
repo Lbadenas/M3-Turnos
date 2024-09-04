@@ -2,12 +2,13 @@
 
 /* Estilos para el contenedor principal que centra el formulario */
 .mainContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ajusta la altura al 100% del viewport */
-  margin: 0; /* Elimina márgenes adicionales */
-  padding: 0; /* Elimina relleno adicional */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  width: 350px; /* Ancho del formulario */
+  margin: 0 auto; /* Centrar horizontalmente */
+  text-align: center; /* Centrar el contenido del formulario */
+  margin-top: 50px; /* Espacio desde la parte superior */
+  position: relative; /* Posición relativa para que el fondo no se desplace */
 }
 
 /* Estilos para el formulario de reserva */
