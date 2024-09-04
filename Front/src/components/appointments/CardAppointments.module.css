@@ -47,3 +47,38 @@
 .CardTurnos:hover .datos span {
   color: #0e0f0e; /* Cambia el color de los datos al pasar el cursor por encima */
 }
+
+.active {
+  background-color: #28a745; /* Fondo verde */
+  color: white; /* Texto blanco */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el estado activo */
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto de hover para el estado activo */
+.active:hover {
+  background-color: #218838; /* Color verde más oscuro al pasar el cursor */
+  transform: scale(1.05); /* Escala ligeramente el botón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
+}
+
+/* Estilos para el estado cancelado */
+.cancelled {
+  background-color: #dc3545; /* Fondo rojo */
+  color: white; /* Texto blanco */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: not-allowed; /* Cambia el cursor para indicar que no es interactivo */
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto de hover para el estado cancelado */
+.cancelled:hover {
+  background-color: #c82333; /* Color rojo más oscuro al pasar el cursor */
+  transform: scale(1.05); /* Escala ligeramente el botón */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
+}

@@ -1,0 +1,100 @@
+/* Estilos para la página de error 404 */
+.errorContainer {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Fondo blanco con transparencia */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 30px; /* Espaciado interno */
+  width: 400px; /* Ancho del contenedor aumentado */
+  margin: 50px auto; /* Centrar horizontalmente y agregar margen superior */
+  text-align: center; /* Centrar el contenido */
+  position: relative; /* Posición relativa para que el fondo no se desplace */
+  z-index: 1; /* Colocar el contenedor sobre otros elementos */
+}
+
+.errorContainer h1 {
+  font-family: "Play", sans-serif;
+  font-size: 36px; /* Tamaño de la fuente aumentado */
+  font-weight: bold; /* Negrita */
+  color: rgb(204, 109, 20); /* Color del texto */
+  margin-bottom: 30px; /* Espacio inferior aumentado */
+}
+
+.errorContainer p {
+  font-family: "Play", sans-serif;
+  font-size: 20px; /* Tamaño de la fuente aumentado */
+  color: rgb(204, 109, 20); /* Color del texto */
+  margin-bottom: 40px; /* Espacio inferior aumentado para separar del botón */
+}
+
+.errorButton {
+  background-color: rgb(204, 109, 20); /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Quitar borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 15px 30px; /* Espaciado interno aumentado */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+  font-size: 20px; /* Tamaño de la fuente aumentado */
+  margin-top: 50px; /* Espacio superior aumentado para separar más del texto */
+}
+
+.errorButton:hover {
+  background-color: rgb(
+    170,
+    90,
+    15
+  ); /* Cambiar color de fondo al pasar el cursor */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .errorContainer {
+    width: 90%; /* Ancho del contenedor adaptado para pantallas pequeñas */
+    padding: 20px; /* Reducir espaciado interno en pantallas pequeñas */
+    margin: 30px auto; /* Ajustar margen superior en pantallas pequeñas */
+  }
+
+  .errorContainer h1 {
+    font-size: 28px; /* Reducir tamaño de fuente en pantallas pequeñas */
+    margin-bottom: 20px; /* Ajustar espacio inferior */
+  }
+
+  .errorContainer p {
+    font-size: 18px; /* Reducir tamaño de fuente en pantallas pequeñas */
+    margin-bottom: 30px; /* Ajustar espacio inferior */
+  }
+
+  .errorButton {
+    padding: 12px 25px; /* Reducir espaciado interno del botón en pantallas pequeñas */
+    font-size: 18px; /* Reducir tamaño de fuente del botón */
+    margin-top: 30px; /* Ajustar espacio superior en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .errorContainer {
+    width: 95%; /* Ancho del contenedor adaptado aún más para pantallas muy pequeñas */
+    padding: 15px; /* Reducir espaciado interno en pantallas muy pequeñas */
+    margin: 20px auto; /* Ajustar margen superior en pantallas muy pequeñas */
+  }
+
+  .errorContainer h1 {
+    font-size: 24px; /* Reducir tamaño de fuente aún más en pantallas muy pequeñas */
+    margin-bottom: 15px; /* Ajustar espacio inferior */
+  }
+
+  .errorContainer p {
+    font-size: 16px; /* Reducir tamaño de fuente aún más en pantallas muy pequeñas */
+    margin-bottom: 25px; /* Ajustar espacio inferior */
+  }
+
+  .errorButton {
+    padding: 10px 20px; /* Reducir espaciado interno del botón en pantallas muy pequeñas */
+    font-size: 16px; /* Reducir tamaño de fuente del botón */
+    margin-top: 20px; /* Ajustar espacio superior en pantallas muy pequeñas */
+  }
+}

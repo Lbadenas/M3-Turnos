@@ -23,7 +23,7 @@ export default function CardTurnos({
 
   const handleClick = () => {
     const confirmCancel = window.confirm(
-      `¿Desea cancelar el turno del día ${formDate} a las ${time}?`
+      `¿Desea cancelar el turno del día ${formDate} a las ${time}?`,
     );
     if (confirmCancel) {
       handleAppointmentCancel(id);

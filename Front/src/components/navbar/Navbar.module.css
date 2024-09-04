@@ -4,55 +4,59 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: rgb(204, 109, 20);
-  padding-bottom: 1em;
   align-items: center;
-  background-color: black;
-  font-family: "Play", sans-serif;
+  background-color: black; /* Color de fondo del navbar */
+  color: rgb(204, 109, 20); /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno del navbar */
+  font-family: "Play", sans-serif; /* Fuente de la navbar */
 }
 
 .logo {
   display: flex;
-  flex-direction: row;
-  border-radius: 20px;
-  margin-top: 20px; /* Agrega margen superior para separar del borde superior */
+  align-items: center;
 }
 
 .logo img {
-  width: 80px; /* Ajusta el ancho de tu logo según tus necesidades */
-  height: 80px; /* Establece la misma altura que el ancho */
-  margin-bottom: 10px; /* Agrega margen inferior para separar el logo del título */
-  border-radius: 50%; /* Redondea la imagen */
-}
-
-.avatar {
-  display: grid;
-  place-items: center;
-  height: 100%;
-  img {
-    width: 50px;
-    padding: 20px 20px 0 0;
-  }
+  width: 80px; /* Ancho del logo */
+  height: 80px; /* Altura del logo igual al ancho para mantener la proporción */
+  border-radius: 50%; /* Bordes redondeados en el logo */
+  margin-bottom: 10px; /* Margen inferior del logo */
 }
 
 .links {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  padding: 20px 0 0 0;
-  gap: 1em;
-  text-shadow: 2px 2px 4px black;
-  font-size: 1.2em;
-  span:hover {
-    color: white;
-    cursor: pointer;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  a:hover {
-    cursor: pointer;
-    color: white;
-  }
+  align-items: center;
+  gap: 1em; /* Espacio entre los enlaces */
+  font-size: 1.2em; /* Tamaño de fuente */
+}
+
+.links a {
+  text-decoration: none; /* Quitar subrayado de los enlaces */
+  color: rgb(204, 109, 20); /* Color del texto de los enlaces */
+  padding: 10px 15px; /* Espaciado interno de los enlaces */
+  border-radius: 5px; /* Bordes redondeados en los enlaces */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.links a:hover {
+  background-color: rgb(204, 109, 20); /* Color de fondo al pasar el cursor */
+  color: white; /* Color del texto al pasar el cursor */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el enlace */
+}
+
+.navbarContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 2em; /* Espacio entre el logo y los botones */
+}
+
+.navbarButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em; /* Espacio entre los botones */
 }

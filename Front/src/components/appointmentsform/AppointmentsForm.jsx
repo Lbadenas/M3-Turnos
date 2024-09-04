@@ -12,7 +12,7 @@ export default function AppointmentForm() {
 
   useEffect(() => {
     if (!userId) {
-      navigate("/home");
+      navigate("/");
     }
   }, [userId, navigate]);
 
@@ -74,7 +74,7 @@ export default function AppointmentForm() {
       .then(({ data }) => {
         alert(`Ha sido creada la reserva ${data.state}, hora ${data.time}`);
         setAppointment(initialState);
-        navigate("/appointments");
+        navigate("/appointment");
       })
       .catch((error) => {
         alert(`Error ${error.response.data.error}`);

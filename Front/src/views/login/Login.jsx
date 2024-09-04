@@ -47,7 +47,7 @@ function Login() {
         dispatch(setUserData(data));
         alert("Usuario logueado correctamente");
         setUser(initialState);
-        navigate("/appointments"); // Redirige al usuario a la página de reservas
+        navigate("/appointment"); // Redirige al usuario a la página de reservas
       })
       .catch((error) => alert(error?.response?.data?.message));
   };

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import avatar from "../../assets/avatar.png";
 import logo from "../../assets/logo.png";
 import styles from "../navbar/Navbar.module.css";
 import { useSelector } from "react-redux";
@@ -32,12 +31,9 @@ export default function Navbar() {
         </Link>
         {login && (
           <Link to="/appointmentsform">
-            <span>Nueva Reserva</span>
+            <span>NUEVA RESERVA</span>
           </Link>
         )}
-      </div>
-      <div className={styles.avatar}>
-        <img src={avatar} alt="avatar" />
       </div>
     </div>
   );

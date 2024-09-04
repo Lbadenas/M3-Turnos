@@ -4,13 +4,20 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url("https://www.ufv.es/cetys/blog/wp-content/uploads/2023/04/peluqueria-peluqueria-mujeres-trabajos-peluqueria-campana-profesional-2048x1365.jpg"); /* URL de la imagen de fondo */
+  background-image: url("https://www.ufv.es/cetys/blog/wp-content/uploads/2023/04/peluqueria-peluqueria-mujeres-trabajos-peluqueria-campana-profesional-2048x1365.jpg");
   background-size: cover;
   background-position: center;
   text-align: center;
-  color: #fff; /* Color del texto */
+  color: #fff;
   font-family: Arial, sans-serif;
   padding: 20px;
+}
+
+.textContainer {
+  background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+  padding: 30px; /* Aumenta el padding para más espacio interno */
+  border-radius: 10px; /* Bordes redondeados para un look más suave */
+  margin-bottom: 40px; /* Espacio debajo del contenedor de texto */
 }
 
 .welcomeText {
@@ -21,18 +28,19 @@
 .description {
   font-size: 24px;
   max-width: 600px;
-  margin-bottom: 40px;
+  margin-bottom: 30px; /* Espacio debajo de la descripción */
 }
 
 .button {
   background-color: #007bff;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 30px; /* Aumenta el padding para un botón más grande */
   border: none;
   border-radius: 5px;
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 20px; /* Espacio arriba del botón */
 }
 
 .button:hover {

@@ -1,20 +1,88 @@
+/* Estilos para el contenedor del formulario */
 .contactContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh; /* Altura total de la pantalla */
-  background-color: #f0f0f0; /* Color de fondo */
-  color: #333; /* Color del texto */
-  font-family: Arial, sans-serif;
-  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Fondo blanco con transparencia */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  width: 350px; /* Ancho del formulario */
+  margin: 0 auto; /* Centrar horizontalmente */
+  text-align: center; /* Centrar el contenido del formulario */
+  margin-top: 50px; /* Espacio desde la parte superior */
+  position: relative; /* Posición relativa para que el fondo no se desplace */
+  z-index: 1; /* Coloca el formulario sobre la imagen de fondo */
 }
 
-.contactDetails {
-  margin-top: 20px;
-  text-align: center;
+.contactContainer h1 {
+  font-family: "Play", sans-serif;
+  font-size: 24px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  color: rgb(204, 109, 20); /* Color del texto */
+  margin-bottom: 20px; /* Espacio inferior */
 }
 
-.contactDetails p {
-  margin: 10px 0;
+.formGroup {
+  margin-bottom: 15px; /* Espacio inferior entre los inputs */
+}
+
+label {
+  display: block;
+  font-family: "Play", sans-serif;
+  font-size: 16px; /* Tamaño de la fuente */
+  font-weight: bold; /* Negrita */
+  color: rgb(204, 109, 20); /* Color del texto */
+  margin-bottom: 5px; /* Espacio inferior entre el label y el input */
+  text-align: left; /* Alinear el texto a la izquierda */
+}
+
+input,
+textarea {
+  width: 80%; /* Ancho del input y textarea */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #ccc; /* Borde con color gris */
+  font-weight: bold; /* Negrita */
+  font-size: 16px; /* Tamaño de la fuente */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  font-family: "Play", sans-serif;
+  margin-bottom: 15px; /* Espacio inferior entre inputs */
+}
+
+textarea {
+  resize: vertical; /* Permitir cambiar el tamaño verticalmente */
+}
+
+/* Estilos para el botón de envío */
+.submitButton {
+  background-color: rgb(204, 109, 20); /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Quitar borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+  margin-top: 20px; /* Espacio superior */
+}
+
+/* Cambiar el color de fondo al pasar el cursor */
+.submitButton:hover {
+  background-color: rgb(170, 90, 15);
+}
+
+/* Estilos para el botón deshabilitado */
+.submitButton:disabled {
+  background-color: #b0b0b0; /* Color de fondo cuando está deshabilitado */
+  cursor: not-allowed; /* Cambiar cursor cuando está deshabilitado */
+}
+
+/* Estilos para el mensaje de carga */
+.loadingMessage {
+  font-family: "Play", sans-serif;
+  font-size: 16px; /* Tamaño de la fuente */
+  color: rgb(204, 109, 20); /* Color del texto */
+  margin-top: 20px; /* Espacio superior */
+  font-weight: bold; /* Negrita */
 }
