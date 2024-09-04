@@ -1,0 +1,24 @@
+/* Transición de entrada */
+/* Transición de entrada */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px); /* Desplazamiento hacia abajo al entrar */
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0); /* Posición final */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transición suave */
+}
+
+/* Transición de salida */
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0); /* Posición inicial */
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-5px); /* Desplazamiento hacia arriba al salir */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transición suave */
+}

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Appointment from "./views/appointment/appointment";
 import Login from "./views/login/Login";
@@ -8,24 +8,34 @@ import Landing from "./views/landing/Landing";
 import ErrorPage from "./views/errorPage/ErrorPage";
 import AppointmentForm from "./components/appointmentsform/AppointmentsForm";
 import Contact from "./views/contact/Contact";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import "./App.css";
 
 function App() {
+  const location = useLocation(); // Obtiene la ubicación actual
+
   return (
     <div>
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/appointment" element={<Appointment />} />
-        <Route path="/appointmentsform" element={<AppointmentForm />} />
-
-        <Route path="/*" element={<ErrorPage />} />
-      </Routes>
+      <TransitionGroup>
+        <CSSTransition key={location.key} classNames="fade" timeout={500}>
+          <div>
+            <Routes location={location}>
+              <Route path="/" element={<Landing />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/appointment" element={<Appointment />} />
+              <Route path="/appointmentsform" element={<AppointmentForm />} />
+              <Route path="/*" element={<ErrorPage />} />
+            </Routes>
+          </div>
+        </CSSTransition>
+      </TransitionGroup>
     </div>
   );
 }
+
 export default App;

@@ -32,7 +32,12 @@
 }
 
 .linksWrapper {
-  background: rgba(128, 128, 128, 0.5); /* Fondo gris semi-transparente */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Fondo negro con 50% de transparencia */
   border-radius: 10px; /* Bordes redondeados */
   padding: 10px 20px; /* Espaciado interno del contenedor */
 }
@@ -55,7 +60,7 @@
 }
 
 .links a:hover {
-  color: #5c4033; /* Color caoba oscuro al pasar el cursor */
+  color: #ebb49b; /* Color caoba oscuro al pasar el cursor */
   text-decoration: underline; /* Subrayar los enlaces al pasar el cursor */
 }
 
@@ -78,7 +83,7 @@
 }
 
 .navbarButtons button {
-  background-color: #5c4033; /* Color caoba oscuro que se asemeja a la madera */
+  background-color: #7e4f3a; /* Color caoba oscuro que se asemeja a la madera */
   color: white;
   padding: 15px 30px; /* Aumenta el padding para un botón más grande */
   border: none;

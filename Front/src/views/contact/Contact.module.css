@@ -1,96 +1,145 @@
-/* Estilos para el contenedor del formulario */
+/* Estilo para el contenedor de fondo */
+.backgroundContainer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://images.pexels.com/photos/3993320/pexels-photo-3993320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease-in-out; /* Transición para la opacidad */
+}
 
+/* Estilos para el contenedor del formulario, inicialmente oculto */
 .contactContainer {
   background-color: rgba(
     0,
     0,
     0,
-    0.7
-  ); /* Fondo negro con 70% de transparencia */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 20px; /* Espaciado interno */
-  width: 350px; /* Ancho del formulario */
-  margin: 0 auto; /* Centrar horizontalmente */
-  text-align: center; /* Centrar el contenido del formulario */
-  margin-top: 50px; /* Espacio desde la parte superior */
-  position: relative; /* Posición relativa para que el fondo no se desplace */
-  z-index: 1; /* Coloca el formulario sobre la imagen de fondo */
+    0.4
+  ); /* Fondo negro con 40% de transparencia */
+  border-radius: 10px;
+  padding: 30px;
+  width: 400px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  opacity: 0; /* Inicialmente oculto */
+  visibility: hidden; /* Inicialmente oculto */
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Transición para la visibilidad */
+}
+
+/* Mostrar formulario cuando el fondo esté completamente cargado */
+.contactContainer.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Estilo de hover para una pequeña animación */
+.contactContainer:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
 }
 
 .contactContainer h1 {
   font-family: "Play", sans-serif;
-  font-size: 24px; /* Tamaño de la fuente */
-  font-weight: bold; /* Negrita */
-  color: #fff; /* Color del texto blanco */
-  margin-bottom: 20px; /* Espacio inferior */
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 25px;
 }
 
 .formGroup {
-  margin-bottom: 15px; /* Espacio inferior entre los inputs */
+  margin-bottom: 20px;
 }
 
 label {
   display: block;
   font-family: "Play", sans-serif;
-  font-size: 16px; /* Tamaño de la fuente */
-  font-weight: bold; /* Negrita */
-  color: #fff; /* Color del texto blanco */
-  margin-bottom: 5px; /* Espacio inferior entre el label y el input */
-  text-align: left; /* Alinear el texto a la izquierda */
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+  text-align: left;
 }
 
 input,
 textarea {
-  width: 80%; /* Ancho del input y textarea */
-  padding: 10px; /* Espaciado interno */
-  border-radius: 5px; /* Bordes redondeados */
-  border: 1px solid #ccc; /* Borde con color gris */
-  font-weight: bold; /* Negrita */
-  font-size: 16px; /* Tamaño de la fuente */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  width: 85%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: "Play", sans-serif;
-  margin-bottom: 15px; /* Espacio inferior entre inputs */
-  color: #000; /* Color del texto negro */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.9
-  ); /* Fondo blanco con 90% de transparencia */
+  margin-bottom: 20px;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 textarea {
-  resize: vertical; /* Permitir cambiar el tamaño verticalmente */
+  resize: vertical;
 }
 
-/* Estilos para el botón de envío */
 .submitButton {
-  background-color: rgb(204, 109, 20); /* Color de fondo */
-  color: white; /* Color del texto */
-  border: none; /* Quitar borde */
-  border-radius: 5px; /* Bordes redondeados */
-  padding: 10px 20px; /* Espaciado interno */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-  transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
-  margin-top: 20px; /* Espacio superior */
+  background-color: #5c4033;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
-/* Cambiar el color de fondo al pasar el cursor */
 .submitButton:hover {
-  background-color: rgb(170, 90, 15);
+  background-color: #4a2c1d;
 }
 
-/* Estilos para el botón deshabilitado */
 .submitButton:disabled {
-  background-color: #b0b0b0; /* Color de fondo cuando está deshabilitado */
-  cursor: not-allowed; /* Cambiar cursor cuando está deshabilitado */
+  background-color: #b0b0b0;
+  cursor: not-allowed;
 }
 
-/* Estilos para el mensaje de carga */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left: 8px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .loadingMessage {
   font-family: "Play", sans-serif;
-  font-size: 16px; /* Tamaño de la fuente */
-  color: rgb(204, 109, 20); /* Color del texto */
-  margin-top: 20px; /* Espacio superior */
-  font-weight: bold; /* Negrita */
+  font-size: 16px;
+  color: rgb(204, 109, 20);
+  margin-top: 20px;
+  font-weight: bold;
 }
