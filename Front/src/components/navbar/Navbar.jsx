@@ -17,15 +17,15 @@ export default function Navbar() {
             <span>SERVICIOS</span>
           </Link>
 
+          <Link to="/contact">
+            <span>CONTACTO</span>
+          </Link>
+
           {login && (
             <Link to="/appointment">
               <span>RESERVAS</span>
             </Link>
           )}
-
-          <Link to="/contact">
-            <span>CONTACTO</span>
-          </Link>
 
           {login && (
             <Link to="/appointmentsform">

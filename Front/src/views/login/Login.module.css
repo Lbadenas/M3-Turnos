@@ -2,17 +2,17 @@
 
 .formulario {
   background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Fondo blanco con transparencia */
+    0,
+    0,
+    0,
+    0.4
+  ); /* Fondo negro con 40% de transparencia */
   border-radius: 10px; /* Bordes redondeados */
   padding: 20px; /* Espaciado interno */
   width: 350px; /* Ancho del formulario */
   margin: 0 auto; /* Centrar horizontalmente */
   text-align: center; /* Centrar el contenido del formulario */
-  margin-top: 20px;
+  box-shadow: 0 4px 40px rgba(255, 255, 255, 0.6); /* Sombra difusa en blanco */
 }
 
 .tarjeta {
@@ -75,4 +75,5 @@
   height: 80px; /* Establece la misma altura que el ancho */
   margin-bottom: 10px; /* Agrega margen inferior para separar el logo del título */
   border-radius: 50%; /* Redondea la imagen */
+  box-shadow: 0 4px 40px rgba(255, 255, 255, 0.6); /* Sombra difusa en blanco */
 }

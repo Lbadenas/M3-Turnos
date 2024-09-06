@@ -30,6 +30,7 @@
   opacity: 0; /* Inicialmente oculto */
   visibility: hidden; /* Inicialmente oculto */
   transition: opacity 1s ease-in-out, visibility 1s ease-in-out; /* Transición para la visibilidad */
+  box-shadow: 0 4px 40px rgba(255, 255, 255, 0.6); /* Sombra difusa en blanco */
 }
 
 /* Mostrar formulario cuando el fondo esté completamente cargado */
@@ -39,10 +40,6 @@
 }
 
 /* Estilo de hover para una pequeña animación */
-.contactContainer:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  transform: translateY(-5px);
-}
 
 .contactContainer h1 {
   font-family: "Play", sans-serif;
@@ -116,24 +113,6 @@ textarea {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-}
-
-.spinner {
-  border: 8px solid rgba(0, 0, 0, 0.1);
-  border-left: 8px solid #fff;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .loadingMessage {

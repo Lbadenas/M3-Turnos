@@ -40,6 +40,7 @@
   max-width: 600px; /* Ancho máximo del contenedor */
   width: 100%; /* Ajusta el ancho al 100% del contenedor padre */
   box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
+  box-shadow: 0 4px 40px rgba(255, 255, 255, 0.6); /* Sombra difusa en blanco */
 }
 
 /* Estilos para el título */
@@ -74,4 +75,8 @@
 
 .button:hover {
   background-color: #4a2c1d; /* Un tono caoba más oscuro para el hover */
+}
+
+.hidden {
+  display: none;
 }

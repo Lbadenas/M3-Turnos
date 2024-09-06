@@ -16,11 +16,7 @@
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en múltiples líneas */
-  gap: 16px; /* Espacio entre las tarjetas */
-  justify-content: center; /* Centra las tarjetas horizontalmente */
-  padding: 20px; /* Espaciado alrededor del contenedor */
+  display: ruby;
 }
 
 .card {

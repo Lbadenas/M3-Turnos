@@ -10,9 +10,8 @@ import AppointmentForm from "./components/appointmentsform/AppointmentsForm";
 import Contact from "./views/contact/Contact";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./App.css";
-
 function App() {
-  const location = useLocation(); // Obtiene la ubicación actual
+  const location = useLocation();
 
   return (
     <div>

@@ -69,6 +69,8 @@ function Contact() {
       >
         <h1>Contacto</h1>
         <form onSubmit={handleSubmit}>
+          {console.log("formData", formData)}
+
           <div className={styles.formGroup}>
             <label htmlFor="name">Nombre:</label>
             <input

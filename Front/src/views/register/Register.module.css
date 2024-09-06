@@ -2,23 +2,23 @@
 
 .registrocontainer {
   background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Fondo blanco con transparencia */
+    0,
+    0,
+    0,
+    0.4
+  ); /* Fondo negro con 40% de transparencia */
   border-radius: 10px; /* Bordes redondeados */
-  padding: 20px; /* Espaciado interno */
+  padding: 15px; /* Espaciado interno */
   width: 350px; /* Ancho del formulario */
   margin: 0 auto; /* Centrar horizontalmente */
   text-align: center; /* Centrar el contenido del formulario */
-  margin-top: 50px; /* Espaciado desde la parte superior */
+  margin-top: 70px; /* Espaciado desde la parte superior */
   position: relative; /* Posición relativa para que el fondo no se desplace */
   z-index: 1; /* Coloca el formulario sobre la imagen de fondo */
+  box-shadow: 0 4px 40px rgba(255, 255, 255, 0.6); /* Sombra difusa en blanco */
 }
 
 .registroh2 {
-  font-family: "Play", sans-serif;
   font-size: 24px; /* Tamaño de la fuente */
   font-weight: bold; /* Negrita */
   color: rgb(204, 109, 20);
@@ -27,18 +27,16 @@
 
 .inputregistro {
   width: 80%; /* Ancho completo */
-  padding: 10px; /* Espaciado interno */
-  margin-bottom: 15px; /* Espacio inferior */
+  padding: 8px; /* Espaciado interno */
+  margin-bottom: 12px; /* Espacio inferior */
   border-radius: 5px; /* Bordes redondeados */
   border: 1px solid #ccc; /* Borde con color gris */
-  font-weight: bold; /* Negrita */
-  font-size: 16px; /* Tamaño de la fuente */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+
   font-family: "Play", sans-serif;
 }
 
 .botonregistro {
-  background-color: rgb(204, 109, 20); /* Color verde agua con transparencia */
+  background-color: #5c4033; /* Color caoba oscuro que se asemeja a la madera */
   color: white; /* Color del texto */
   border: none; /* Quitar borde */
   border-radius: 5px; /* Bordes redondeados */
@@ -47,7 +45,6 @@
   transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
   margin-top: 20px; /* Espacio superior */
   margin-right: 10px; /* Espaciado entre botones */
-  font-family: "Play", sans-serif;
 }
 
 .botonregistro:hover {
@@ -66,6 +63,6 @@
 .logo {
   width: 80px; /* Ajusta el ancho de tu logo según tus necesidades */
   height: 80px; /* Establece la misma altura que el ancho */
-  margin-bottom: 10px; /* Agrega margen inferior para separar el logo del título */
   border-radius: 50%; /* Redondea la imagen */
+  box-shadow: 0 4px 40px rgba(255, 255, 255, 0.6); /* Sombra difusa en blanco */
 }

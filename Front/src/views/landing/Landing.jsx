@@ -1,9 +1,18 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import Register from "../register/Register";
+import Login from "../login/Login";
 import styles from "../landing/Landing.module.css";
 
 function Landing() {
+  const [showForm, setShowForm] = useState(null); // Estado para controlar qué formulario se muestra
+
+  const handleFormSwitch = (formType) => {
+    setShowForm(formType); // Cambiamos el estado según el formulario a mostrar
+  };
+
   return (
     <div className={styles.homeContainer}>
+      {/* Video de fondo */}
       <div className={styles.videoBackground}>
         <video autoPlay muted loop>
           <source
@@ -13,23 +22,43 @@ function Landing() {
           Tu navegador no soporta el elemento de video.
         </video>
       </div>
-      <div className={styles.landingContainer}>
-        <h1 className={styles.landingTitle}>Bienvenid@</h1>
-        <h2 className={styles.landingSubtitle}>
-          ¿Es tu primera vez en nuestra app?
-        </h2>
-        <div className={styles.buttonContainer}>
-          <Link to="/register" className={styles.button}>
-            Registrarse
-          </Link>
-        </div>
-        <h2 className={styles.landingSubtitle}>¿Ya tienes una cuenta?</h2>
-        <div className={styles.buttonContainer}>
-          <Link to="/login" className={styles.button}>
-            Iniciar Sesión
-          </Link>
-        </div>
+
+      {/* Contenedor para la landing page y formularios */}
+      <div
+        className={`${styles.landingContainer} ${
+          showForm ? styles.hidden : ""
+        }`}
+      >
+        {!showForm && (
+          <>
+            <h1 className={styles.landingTitle}>Bienvenid@</h1>
+            <h2 className={styles.landingSubtitle}>
+              ¿Es tu primera vez en nuestra app?
+            </h2>
+            <div className={styles.buttonContainer}>
+              <button
+                onClick={() => handleFormSwitch("register")}
+                className={styles.button}
+              >
+                Registrarse
+              </button>
+            </div>
+            <h2 className={styles.landingSubtitle}>¿Ya tienes una cuenta?</h2>
+            <div className={styles.buttonContainer}>
+              <button
+                onClick={() => handleFormSwitch("login")}
+                className={styles.button}
+              >
+                Iniciar Sesión
+              </button>
+            </div>
+          </>
+        )}
       </div>
+
+      {/* Formularios */}
+      {showForm === "register" && <Register />}
+      {showForm === "login" && <Login />}
     </div>
   );
 }
