@@ -17,9 +17,11 @@ export default function CardTurnos({
   }
 
   const appointmentDate = new Date(date);
-  const formDate = `${appointmentDate.getDate()} / ${
-    appointmentDate.getMonth() + 1
-  } / ${appointmentDate.getFullYear()}`;
+  const formDate = appointmentDate.toLocaleDateString("es-ES", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
 
   const handleClick = () => {
     const confirmCancel = window.confirm(
@@ -29,13 +31,13 @@ export default function CardTurnos({
       handleAppointmentCancel(id);
     }
   };
+
   return (
     <div className={styles.turnosContainer}>
-      {/* Aquí podrías mapear a través de tus datos si tienes varios turnos */}
       <div className={styles.CardTurnos}>
         <img src={logo} alt="logo" className={styles.logo} />
         <div className={styles.datos}>
-          <span>{date}</span>
+          <span>{formDate}</span>
           <span>{time}</span>
           <span>{description}</span>
           {status === "active" ? (
@@ -47,7 +49,6 @@ export default function CardTurnos({
           )}
         </div>
       </div>
-      {/* Repite el bloque CardTurnos para más tarjetas */}
     </div>
   );
 }

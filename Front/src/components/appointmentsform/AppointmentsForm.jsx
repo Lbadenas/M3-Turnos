@@ -76,22 +76,42 @@ export default function AppointmentForm() {
 
   const isWeekend = (date) => {
     const day = new Date(date).getDay();
-    return day === 6 || day === 0;
+    return day === 6 || day === 0; // 6 = Sábado, 0 = Domingo
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
+    // Actualiza el estado del formulario
     setAppointment((prevAppointment) => ({
       ...prevAppointment,
       [name]: value,
     }));
 
+    // Validar si la fecha seleccionada es un fin de semana
+    if (name === "date" && isWeekend(value)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        date: "La fecha seleccionada es un fin de semana",
+      }));
+    } else {
+      // Eliminar el error si la fecha no es un fin de semana
+      setErrors((prevErrors) => {
+        const newErrors = { ...prevErrors };
+        delete newErrors.date;
+        return newErrors;
+      });
+    }
+
+    // Validar el formulario con los nuevos valores
     const newErrors = validateAppointment({ ...appointment, [name]: value });
     setErrors(newErrors);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Crea el objeto para la cita
     const newAppointment = {
       date: appointment.date,
       time: `${appointment.hours}:${appointment.minutes}`,
@@ -99,12 +119,14 @@ export default function AppointmentForm() {
       userId,
     };
 
+    // Validar antes de enviar
     const validationErrors = validateAppointment(newAppointment);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      return;
+      return; // No continuar si hay errores
     }
 
+    // Si todo está correcto, enviar la solicitud
     axios
       .post(POSTAPPOINTMENT_URL, newAppointment)
       .then(({ data }) => {
