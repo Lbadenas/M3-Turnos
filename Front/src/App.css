@@ -1,24 +1,22 @@
-/* Transición de entrada */
-/* Transición de entrada */
 .fade-enter {
   opacity: 0;
-  transform: translateY(10px); /* Desplazamiento hacia abajo al entrar */
+  filter: blur(10px); /* Comienza completamente borroso */
 }
 
 .fade-enter-active {
   opacity: 1;
-  transform: translateY(0); /* Posición final */
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transición suave */
+  filter: blur(0); /* Se vuelve nítido */
+  transition: opacity 1s ease-in-out, filter 1s ease-in-out; /* Transición lenta */
 }
 
 /* Transición de salida */
 .fade-exit {
   opacity: 1;
-  transform: translateY(0); /* Posición inicial */
+  filter: blur(0); /* Mantiene nitidez al salir */
 }
 
 .fade-exit-active {
   opacity: 0;
-  transform: translateY(-5px); /* Desplazamiento hacia arriba al salir */
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transición suave */
+  filter: blur(10px); /* Se vuelve borroso al salir */
+  transition: opacity 1s ease-in-out, filter 1s ease-in-out; /* Transición lenta */
 }

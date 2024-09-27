@@ -8,8 +8,12 @@ import Landing from "./views/landing/Landing";
 import ErrorPage from "./views/errorPage/ErrorPage";
 import AppointmentForm from "./components/appointmentsform/AppointmentsForm";
 import Contact from "./views/contact/Contact";
+
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./App.css";
+import Servicios from "./views/services/servicios";
+import Footer from "./components/footer/footer";
+
 function App() {
   const location = useLocation();
 
@@ -18,11 +22,12 @@ function App() {
       <Navbar />
 
       <TransitionGroup>
-        <CSSTransition key={location.key} classNames="fade" timeout={500}>
+        <CSSTransition key={location.key} classNames="fade" timeout={300}>
           <div>
             <Routes location={location}>
               <Route path="/" element={<Landing />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/service" element={<Servicios />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
@@ -33,6 +38,8 @@ function App() {
           </div>
         </CSSTransition>
       </TransitionGroup>
+
+      <Footer />
     </div>
   );
 }

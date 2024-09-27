@@ -1,0 +1,107 @@
+/* Mantener el fondo como está */
+.background {
+  background-image: url("https://img.lovepik.com/bg/20231224/Hair-Salon-Design-with-High-Definition-Elevating-Your-Salon-Service_2487132_wh860.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* Centra todo el contenido horizontalmente */
+  align-items: flex-start; /* Mantiene el inicio vertical */
+  position: relative;
+  padding: 20px; /* Espaciado adicional */
+}
+
+/* Contenedor de servicios */
+.serviciosLayout {
+  display: flex;
+  width: 80%; /* Ajusta el ancho para un mejor centrado */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  margin-top: 100px; /* Agrega un margen superior para alejar del top */
+}
+
+/* Contenedor de tarjetas de servicio */
+.serviciosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Cambiado a center para centrar las tarjetas */
+  align-items: flex-start;
+  padding: 20px;
+  margin-right: 20px; /* Espacio entre el contenedor de tarjetas y la descripción */
+  width: 50%; /* Ocupa la mitad del ancho */
+}
+
+/* Estilo de cada tarjeta de servicio */
+.servicio {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px; /* Ajustar margen */
+  padding: 10px;
+  text-align: center;
+  flex: 0 0 300px; /* Ajusta el tamaño de las tarjetas */
+  height: 300px; /* Asegura que todas las tarjetas tengan la misma altura */
+  position: relative;
+}
+
+/* Asegurar que el texto dentro de la tarjeta sea blanco y esté centrado */
+.servicioImagen {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* Mantiene la relación de aspecto de la imagen */
+  border-radius: 10px;
+  margin-bottom: 15px; /* Aumentar el espacio debajo de la imagen */
+}
+
+/* Asegurar que el texto dentro de la tarjeta sea blanco y esté centrado */
+.servicio h3,
+.servicio p {
+  color: white; /* Cambiar el color del texto a blanco */
+  margin: 15px 0; /* Aumentar el margen entre títulos y descripciones */
+  text-align: center; /* Centrar el texto */
+}
+/* Estilo de botón exclusivo */
+.exclusiveButton {
+  background-color: #5c4033; /* Color caoba oscuro que se asemeja a la madera */
+  color: white; /* Color del texto */
+  border: none; /* Quitar borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 12px 25px; /* Espaciado interno */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar el color de fondo */
+  margin-top: 20px; /* Espacio superior */
+}
+
+.exclusiveButton:hover {
+  background-color: rgb(
+    204,
+    109,
+    20
+  ); /* Cambiar color de fondo al pasar el cursor */
+}
+
+.exclusiveButton:disabled {
+  background-color: #b0b0b0; /* Cambiar color de fondo cuando está deshabilitado */
+  cursor: not-allowed; /* Cambiar cursor cuando está deshabilitado */
+}
+
+/* Estilo de descripción y botón */
+.descripcionContainer {
+  margin-top: 40px; /* Espacio superior */
+  width: 30vw; /* Ancho del 20% del ancho de la ventana */
+  height: 30vw; /* Altura igual al ancho para mantenerlo cuadrado */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo con transparencia */
+  color: white; /* Color del texto */
+  padding: 20px; /* Espaciado interno reducido */
+  display: flex;
+  flex-direction: column; /* Coloca los elementos en columna */
+  justify-content: center; /* Centra el contenido */
+  align-items: center; /* Alinea el contenido al centro */
+}
+
+/* Estilo de la descripción */
+.descripcion {
+  margin: 50px 10px 20px; /* Espacio superior y lateral, y margen inferior de 20px */
+  font-size: 1rem; /* Tamaño de fuente ajustado si es necesario */
+  text-align: center; /* Centrar el texto */
+}

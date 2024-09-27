@@ -7,51 +7,64 @@
   background-image: url("https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
-  text-align: center;
   color: #fff;
   font-family: Arial, sans-serif;
-  padding: 20px;
 }
 
 .textContainer {
-  background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
-  padding: 30px; /* Aumenta el padding para más espacio interno */
-  border-radius: 10px; /* Bordes redondeados para un look más suave */
-  margin-bottom: 40px; /* Espacio debajo del contenedor de texto */
+  margin-top: 5%;
+  background: rgba(0, 0, 0, 0.6); /* Fondo negro semi-transparente */
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageCard {
+  width: 100%; /* La tarjeta ocupa el ancho completo del contenedor */
+  padding: 10px;
+
+  border-radius: 10px;
+  margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega sombra a la tarjeta */
+}
+
+.image {
+  width: 100%;
+  border-radius: 10px; /* Redondear los bordes de la imagen */
 }
 
 .welcomeText {
-  font-size: 28px; /* Tamaño de fuente reducido */
-  margin-bottom: 15px; /* Espacio inferior reducido */
-  text-align: center; /* Centrar el texto */
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .description {
-  font-size: 18px; /* Tamaño de fuente reducido */
-  max-width: 500px; /* Reducir el ancho máximo */
-  margin: 0 auto 20px auto; /* Centrar horizontalmente y ajustar margen inferior */
-  text-align: center; /* Centrar el texto */
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .button {
-  background-color: #5c4033; /* Color caoba oscuro que se asemeja a la madera */
+  background-color: #5c4033;
   color: white;
-  padding: 15px 30px; /* Aumenta el padding para un botón más grande */
+  padding: 10px 20px;
   border: none;
-  border-radius: 25px; /* Bordes más redondeados para un look moderno */
-  font-size: 18px;
-  font-family: "Play", sans-serif; /* Asegura que la tipografía sea consistente */
+  border-radius: 25px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Agrega una transición de transformación */
-  margin-top: 20px; /* Espacio arriba del botón */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra para darle un efecto de profundidad */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
-  background-color: #4a2c1d; /* Un tono caoba más oscuro para el hover */
-  transform: translateY(-2px); /* Añade un efecto de desplazamiento sutil */
+  background-color: #4a2c1d;
+  transform: translateY(-2px);
 }
 
 .button:active {
-  transform: translateY(1px); /* Efecto de pulsación al hacer clic */
+  transform: translateY(1px);
 }
