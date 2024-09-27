@@ -80,16 +80,25 @@ function Login() {
             )}
           </div>
         ))}
-        <button
-          className={styles.boton}
-          type="submit"
-          disabled={
-            Object.keys(errors).some((key) => errors[key]) ||
-            Object.values(user).some((value) => value === "")
-          }
-        >
-          Iniciar sesión
-        </button>
+        <div className={styles.buttonContainer}>
+          <button
+            className={styles.boton}
+            type="submit"
+            disabled={
+              Object.keys(errors).some((key) => errors[key]) ||
+              Object.values(user).some((value) => value === "")
+            }
+          >
+            Iniciar sesión
+          </button>
+          <button
+            type="button"
+            className={styles.boton}
+            onClick={() => navigate("/")}
+          >
+            Volver
+          </button>
+        </div>
       </form>
     </div>
   );

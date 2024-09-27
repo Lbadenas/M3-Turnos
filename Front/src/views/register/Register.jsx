@@ -2,13 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import styles from "../register/Register.module.css";
 import logo from "../../assets/logo.png";
-import { useNavigate } from "react-router-dom"; // Importar useNavigate desde react-router-dom
+import { useNavigate } from "react-router-dom";
 
 const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const POSTUSER_URL = "http://localhost:3000/users/register";
 
 function Register() {
-  const navigate = useNavigate(); // Obtener la función navigate
+  const navigate = useNavigate();
   const initialState = {
     name: "",
     email: "",
@@ -19,11 +19,11 @@ function Register() {
     confirmPassword: "",
   };
 
-  //* ESTADOS
+  // ESTADOS
   const [user, setUser] = useState(initialState);
   const [errors, setErrors] = useState({});
 
-  //* VALIDACIONES
+  // VALIDACIONES
   const validateUser = ({
     name,
     email,
@@ -34,43 +34,36 @@ function Register() {
     confirmPassword,
   }) => {
     const errors = {};
-
     if (!name) errors.name = "Ingresar un nombre";
     if (!email) errors.email = "Ingresar un email";
     else {
       if (!emailRegExp.test(email)) errors.email = "Ingresar un email válido";
     }
-
     if (!birthdate) errors.birthdate = "Ingresar una fecha de nacimiento";
     else {
       const today = new Date();
       const birthDate = new Date(birthdate);
       let age = today.getFullYear() - birthDate.getFullYear();
       const monthDifference = today.getMonth() - birthDate.getMonth();
-
       if (
         monthDifference < 0 ||
         (monthDifference === 0 && today.getDate() < birthDate.getDate())
       ) {
         age--;
       }
-
       if (age < 18) {
-        errors.birthdate = "mayores de 18 unicamente";
+        errors.birthdate = "mayores de 18 únicamente";
       }
     }
-
     if (!nDni) errors.nDni = "Ingresar un número de DNI";
     if (!username) errors.username = "Ingresar un nombre de usuario";
     if (!password) errors.password = "Ingresar una contraseña";
     if (confirmPassword !== password)
       errors.confirmPassword = "Contraseña no coincide";
-
     return errors;
   };
 
-  //*handlers
-
+  // HANDLERS
   const handleChange = (event) => {
     const { name, value } = event.target;
     const updatedUser = { ...user, [name]: value };
@@ -103,7 +96,7 @@ function Register() {
         alert(data.message);
         setUser(initialState);
         setErrors({});
-        navigate("/login"); // Redirigir a /home después de un registro exitoso
+        navigate("/login"); // Redirigir a /login después de un registro exitoso
       })
       .catch((error) => alert(error.message));
   };
@@ -112,6 +105,10 @@ function Register() {
     event.preventDefault();
     setUser(initialState);
     setErrors({});
+  };
+
+  const handleBack = () => {
+    navigate(-1); // Navega a la página anterior
   };
 
   const formData = [
@@ -151,20 +148,24 @@ function Register() {
             )}
           </div>
         ))}
-        <button
-          className={styles.botonregistro}
-          type="submit"
-          disabled={
-            Object.keys(errors).some((key) => errors[key]) ||
-            Object.values(user).some((value) => value === "")
-          }
-        >
-          Registrar
-        </button>
-
-        <button className={styles.botonregistro} onClick={handleReset}>
-          Limpiar
-        </button>
+        <div>
+          <button
+            className={styles.botonregistro}
+            type="submit"
+            disabled={
+              Object.keys(errors).some((key) => errors[key]) ||
+              Object.values(user).some((value) => value === "")
+            }
+          >
+            Registrar
+          </button>
+          <button className={styles.botonregistro} onClick={handleReset}>
+            Limpiar
+          </button>
+          <button className={styles.botonregistro} onClick={handleBack}>
+            Volver
+          </button>
+        </div>
       </form>
     </div>
   );

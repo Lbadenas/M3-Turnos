@@ -8,10 +8,10 @@ import Landing from "./views/landing/Landing";
 import ErrorPage from "./views/errorPage/ErrorPage";
 import AppointmentForm from "./components/appointmentsform/AppointmentsForm";
 import Contact from "./views/contact/Contact";
-
+import Servicios from "./views/services/Servicios";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./App.css";
-import Servicios from "./views/services/servicios";
+
 import Footer from "./components/footer/footer";
 
 function App() {
