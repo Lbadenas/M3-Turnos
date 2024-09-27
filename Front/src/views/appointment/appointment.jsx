@@ -61,32 +61,36 @@ export default function Appointment() {
   return (
     <div>
       <div className={styles.container}>
-        {appointments.length > 0 ? (
-          appointments.map((appointment) => (
-            <CardTurnos
-              key={appointment.id}
-              id={appointment.id}
-              date={appointment.date}
-              time={appointment.time}
-              userId={appointment.userId}
-              status={appointment.status}
-              description={appointment.description}
-              handleAppointmentCancel={handleAppointmentCancel}
-              className={styles.card}
-            />
-          ))
-        ) : (
-          <div className={styles.overlay}>
-            <div className={styles.noAppointmentsContainer}>
-              <p className={styles.noAppointments}>No tienes reservas.</p>
-              <img
-                src="https://titulae.es/wp-content/uploads/2021/11/grado-superior-peluqueria.jpg"
-                alt="No hay reservas"
-                className={styles.noAppointmentsImage}
+        <div className={styles.appointmentsGrid}>
+          {" "}
+          {/* Contenedor para las tarjetas */}
+          {appointments.length > 0 ? (
+            appointments.map((appointment) => (
+              <CardTurnos
+                key={appointment.id}
+                id={appointment.id}
+                date={appointment.date}
+                time={appointment.time}
+                userId={appointment.userId}
+                status={appointment.status}
+                description={appointment.description}
+                handleAppointmentCancel={handleAppointmentCancel}
+                className={styles.card} // Asegúrate de que la clase está aplicada
               />
+            ))
+          ) : (
+            <div className={styles.overlay}>
+              <div className={styles.noAppointmentsContainer}>
+                <p className={styles.noAppointments}>No tienes reservas.</p>
+                <img
+                  src="https://titulae.es/wp-content/uploads/2021/11/grado-superior-peluqueria.jpg"
+                  alt="No hay reservas"
+                  className={styles.noAppointmentsImage}
+                />
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,96 +1,65 @@
-/* Ajustes al contenedor de tarjetas */
 .turnosContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  padding: 20px;
-  width: 400px; /* Establece un ancho fijo */
-  height: 400px; /* Establece una altura fija */
-  overflow: auto; /* Agrega barras de desplazamiento si el contenido excede el tamaño */
-  box-sizing: border-box; /* Incluye padding y border en el ancho y alto total */
-  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  display: flex; /* Usar flexbox para el contenedor */
+  flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
+  justify-content: center; /* Centrar las tarjetas horizontalmente */
+  padding: 20px; /* Espaciado interno */
+
+  margin: 0 auto; /* Centrar el contenedor en la página */
 }
 
-/* Ajustes a las tarjetas */
+/* Estilo de cada tarjeta */
 .CardTurnos {
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para resaltar */
-  padding: 20px;
-  font-family: "Play", sans-serif;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box; /* Incluye padding y border en el ancho total de la tarjeta */
-  width: 100%; /* Asegura que la tarjeta ocupe todo el ancho disponible dentro de la columna */
-  max-width: 250px; /* Ancho máximo de la tarjeta */
-  height: auto; /* Altura automática basada en el contenido */
-  color: white; /* Color de texto blanco para resaltar */
-}
-/* Asegura que las imágenes se ajusten adecuadamente */
-
-.CardTurnos img {
-  width: 100px; /* Ancho de la imagen */
-  height: 100px; /* Altura de la imagen */
-  border-radius: 50%; /* Bordes redondeados */
-  margin-bottom: 20px; /* Espacio entre la imagen y los datos */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con opacidad */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+  padding: 50px; /* Aumentar el espaciado interno de la tarjeta */
+  margin: 30px; /* Espaciado entre tarjetas */
+  max-width: 300px;
+  color: white; /* Color de texto blanco */
+  display: flex; /* Usar flexbox en la tarjeta */
+  flex-direction: column; /* Disposición vertical del contenido */
+  align-items: center; /* Centrar contenido horizontalmente */
+  box-sizing: border-box; /* Incluir el padding y el borde en el ancho total */
+  height: auto; /* O especifica un valor fijo si es necesario */
 }
 
-/* Ajusta el contenedor de datos */
+/* Estilos para los datos de la tarjeta */
 .datos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1; /* Asegura que el texto esté por encima de la imagen de fondo */
+  display: flex; /* Usar flexbox para los datos */
+  flex-direction: column; /* Organizar en columnas */
+  align-items: center; /* Centrar elementos horizontalmente */
 }
 
-/* Ajusta el estilo de los datos */
+/* Espaciado entre los elementos de datos */
 .datos span {
-  margin-bottom: 10px; /* Espacio entre los elementos */
-  text-align: center; /* Centra el texto */
-  font-size: 16px; /* Tamaño de la fuente */
-  color: #fff; /* Color de la fuente blanco */
-  font-weight: bold; /* Negrita */
-  line-height: 1.5; /* Espaciado entre líneas */
+  margin: 10px 0; /* Aumentar el espaciado vertical entre cada dato */
+  margin-top: 10px; /* Agregar margen superior para separar más del logo */
 }
 
-/* Efectos de hover para la tarjeta */
+.logo {
+  width: 100px; /* Ancho del logo */
+  height: 100px; /* Alto del logo para que sea un cuadrado */
+  border-radius: 50%; /* Borde redondeado para hacerlo circular */
+  object-fit: cover; /* Ajusta la imagen para cubrir el área del logo */
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  margin-bottom: 15px; /* Espacio inferior entre el logo y los datos */
+}
 
-/* Estilos para el estado activo */
 .active {
-  background-color: #1e7e34; /* Fondo verde oscuro */
-  color: white; /* Texto blanco */
-  border-radius: 5px; /* Bordes redondeados */
-  padding: 10px 20px; /* Espaciado interno */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el estado activo */
-  transition: background-color 0.3s ease, transform 0.3s ease,
-    box-shadow 0.3s ease; /* Transiciones suaves */
+  background-color: #4caf50; /* Color de fondo verde */
+  color: white; /* Color del texto */
+  padding: 8px 12px; /* Espaciado interno */
+  border-radius: 4px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cambia el cursor a mano */
+  text-align: center; /* Centra el texto */
+  font-weight: bold; /* Texto en negrita */
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave para el color de fondo y tamaño */
 }
 
-/* Efecto de hover para el estado activo */
 .active:hover {
-  background-color: #155d27; /* Color verde aún más oscuro */
-  transform: scale(1.05); /* Escala el botón */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra sutil más pronunciada */
+  background-color: #45a049; /* Color más oscuro al pasar el mouse */
 }
 
-/* Estilos para el estado cancelado */
-.cancelled {
-  background-color: #c82333; /* Fondo rojo oscuro */
-  color: white; /* Texto blanco */
-  border-radius: 5px; /* Bordes redondeados */
-  padding: 10px 20px; /* Espaciado interno */
-  cursor: not-allowed; /* Cursor para indicar que no es interactivo */
-  transition: background-color 0.3s ease, transform 0.3s ease,
-    box-shadow 0.3s ease; /* Transiciones suaves */
-}
-
-/* Efecto de hover para el estado cancelado */
-.cancelled:hover {
-  background-color: #a71d2a; /* Color rojo más oscuro */
-  transform: scale(1.05); /* Escala el botón */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra sutil más pronunciada */
+.active:active {
+  transform: scale(1.1); /* Aumenta el tamaño al hacer clic */
 }

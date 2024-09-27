@@ -10,6 +10,20 @@
   filter: blur(0); /* Asegúrate de que no haya filtro de desenfoque aplicado */
 }
 
+.appointmentsGrid {
+  display: flex; /* Usar flexbox para alinear las tarjetas */
+  flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan en varias filas */
+  justify-content: space-between; /* Espacio entre las tarjetas */
+  margin: 20px; /* Margen alrededor del contenedor de tarjetas */
+}
+
+/* Estilo para cada tarjeta */
+.card {
+  flex: 0 0 calc(33.33% - 20px); /* Cada tarjeta ocupará 1/3 del ancho del contenedor menos el espacio */
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
+  margin-bottom: 20px; /* Espacio entre filas de tarjetas */
+  max-width: 300px; /* Ajusta según sea necesario */
+}
 .overlay {
   position: fixed; /* Para que ocupe toda la pantalla */
   top: 0; /* Alinear al top */
