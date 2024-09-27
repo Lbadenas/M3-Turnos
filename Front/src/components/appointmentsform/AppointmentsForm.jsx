@@ -2,10 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2"; // Importa SweetAlert2
 import styles from "../appointmentsform/AppointmentsForm.module.css";
 
 const POSTAPPOINTMENT_URL = "http://localhost:3000/appointments/schedule";
 
+// Opciones de corte de cabello
 const haircutOptions = [
   {
     id: 1,
@@ -81,21 +83,17 @@ export default function AppointmentForm() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    // Actualiza el estado del formulario
     setAppointment((prevAppointment) => ({
       ...prevAppointment,
       [name]: value,
     }));
 
-    // Validar si la fecha seleccionada es un fin de semana
     if (name === "date" && isWeekend(value)) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         date: "La fecha seleccionada es un fin de semana",
       }));
     } else {
-      // Eliminar el error si la fecha no es un fin de semana
       setErrors((prevErrors) => {
         const newErrors = { ...prevErrors };
         delete newErrors.date;
@@ -103,7 +101,6 @@ export default function AppointmentForm() {
       });
     }
 
-    // Validar el formulario con los nuevos valores
     const newErrors = validateAppointment({ ...appointment, [name]: value });
     setErrors(newErrors);
   };
@@ -111,7 +108,6 @@ export default function AppointmentForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Crea el objeto para la cita
     const newAppointment = {
       date: appointment.date,
       time: `${appointment.hours}:${appointment.minutes}`,
@@ -119,23 +115,31 @@ export default function AppointmentForm() {
       userId,
     };
 
-    // Validar antes de enviar
     const validationErrors = validateAppointment(newAppointment);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return; // No continuar si hay errores
     }
 
-    // Si todo está correcto, enviar la solicitud
     axios
       .post(POSTAPPOINTMENT_URL, newAppointment)
       .then(({ data }) => {
-        alert(`Ha sido creada la reserva ${data.state}, hora ${data.time}`);
+        Swal.fire({
+          title: "Reserva Creada",
+          text: `La reserva fue creada con éxito para ${data.state} a las ${data.time}.`,
+          icon: "success",
+          confirmButtonText: "Aceptar",
+        });
         setAppointment(initialState);
         navigate("/appointment");
       })
       .catch((error) => {
-        alert(`Error ${error.response?.data?.error || "desconocido"}`);
+        Swal.fire({
+          title: "Error",
+          text: `Error ${error.response?.data?.error || "desconocido"}`,
+          icon: "error",
+          confirmButtonText: "Aceptar",
+        });
       });
   };
 

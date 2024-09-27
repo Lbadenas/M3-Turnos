@@ -5,6 +5,7 @@ import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserData } from "../../redux/userSlice";
+import Swal from "sweetalert2"; // Importa SweetAlert2
 
 const LOGIN_URL = "http://localhost:3000/users/login";
 
@@ -45,11 +46,25 @@ function Login() {
       .post(LOGIN_URL, userData)
       .then(({ data }) => {
         dispatch(setUserData(data));
-        alert("Usuario logueado correctamente");
+        // Usa SweetAlert2 para mostrar un mensaje de éxito
+        Swal.fire({
+          icon: "success",
+          title: "Éxito",
+          text: "Usuario logueado correctamente",
+        });
         setUser(initialState);
         navigate("/appointment"); // Redirige al usuario a la página de reservas
       })
-      .catch((error) => alert(error?.response?.data?.message));
+      .catch((error) => {
+        // Usa SweetAlert2 para mostrar un mensaje de error
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text:
+            error?.response?.data?.message ||
+            "Ocurrió un error en el inicio de sesión.",
+        });
+      });
   };
 
   const formData = [

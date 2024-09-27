@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Swal from "sweetalert2"; // Importa SweetAlert2
 import styles from "../appointments/CardAppointments.module.css";
 import logo from "../../assets/logo.png";
 
@@ -24,12 +25,23 @@ export default function CardTurnos({
   });
 
   const handleClick = () => {
-    const confirmCancel = window.confirm(
-      `¿Desea cancelar el turno del día ${formDate} a las ${time}?`,
-    );
-    if (confirmCancel) {
-      handleAppointmentCancel(id);
-    }
+    Swal.fire({
+      title: `¿Desea cancelar el turno del día ${formDate} a las ${time}?`,
+      showCancelButton: true,
+      confirmButtonText: "Confirmar",
+      cancelButtonText: "Cancelar",
+      icon: "warning",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleAppointmentCancel(id); // Cancela el turno
+        // Muestra el mensaje de éxito
+        Swal.fire({
+          title: "Turno cancelado exitosamente",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+        });
+      }
+    });
   };
 
   return (

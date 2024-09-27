@@ -3,6 +3,7 @@ import axios from "axios";
 import styles from "../register/Register.module.css";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2"; // Importa SweetAlert2
 
 const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const POSTUSER_URL = "http://localhost:3000/users/register";
@@ -52,7 +53,7 @@ function Register() {
         age--;
       }
       if (age < 18) {
-        errors.birthdate = "mayores de 18 únicamente";
+        errors.birthdate = "Mayores de 18 únicamente";
       }
     }
     if (!nDni) errors.nDni = "Ingresar un número de DNI";
@@ -92,14 +93,24 @@ function Register() {
       .post(POSTUSER_URL, userData)
       .then(({ data }) => {
         console.log(data);
-        alert(data.message);
+        Swal.fire({
+          icon: "success",
+          title: "Registro exitoso",
+          text: data.message,
+        });
         setUser(initialState);
         setErrors({});
 
         // Redirigir a /login después de un registro exitoso
         navigate("/");
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: error.response?.data?.message || error.message,
+        });
+      });
   };
 
   const handleReset = (event) => {

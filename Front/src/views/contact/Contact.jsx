@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Contact.module.css";
 import emailjs from "emailjs-com";
+import Swal from "sweetalert2"; // Importar SweetAlert2
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -10,7 +11,6 @@ function Contact() {
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  // Función para manejar el cambio de los campos del formulario
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,14 +19,12 @@ function Contact() {
     });
   };
 
-  // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Crear un objeto con los datos del formulario
     const emailData = {
-      to_email: formData.email, // Agregar el correo electrónico del formulario
+      to_email: formData.email,
       name: formData.name,
       message: formData.message,
     };
@@ -35,13 +33,17 @@ function Contact() {
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        emailData, // Usar el objeto con el correo
+        emailData,
         import.meta.env.VITE_EMAILJS_USER_ID,
       )
       .then(
         (response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("Mensaje enviado con éxito!");
+          console.log("¡ÉXITO!", response.status, response.text);
+          Swal.fire({
+            icon: "success",
+            title: "¡Mensaje enviado con éxito!",
+            text: "Tu mensaje ha sido enviado correctamente.",
+          });
           setFormData({
             name: "",
             email: "",
@@ -50,8 +52,12 @@ function Contact() {
           setIsLoading(false);
         },
         (err) => {
-          console.error("FAILED...", err);
-          alert("Hubo un error al enviar el mensaje.");
+          console.error("FALLÓ...", err);
+          Swal.fire({
+            icon: "error",
+            title: "Error al enviar el mensaje",
+            text: "Hubo un error al enviar tu mensaje. Inténtalo de nuevo.",
+          });
           setIsLoading(false);
         },
       );
@@ -62,8 +68,6 @@ function Contact() {
       <div className={styles.contactContainer}>
         <h1>Contacto</h1>
         <form onSubmit={handleSubmit}>
-          {console.log("formData", formData)}
-
           <div className={styles.formGroup}>
             <label htmlFor="name">Nombre:</label>
             <input

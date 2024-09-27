@@ -3,7 +3,6 @@
   flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
   justify-content: center; /* Centrar las tarjetas horizontalmente */
   padding: 20px; /* Espaciado interno */
-
   margin: 0 auto; /* Centrar el contenedor en la página */
 }
 
@@ -53,13 +52,14 @@
   cursor: pointer; /* Cambia el cursor a mano */
   text-align: center; /* Centra el texto */
   font-weight: bold; /* Texto en negrita */
-  transition: background-color 0.3s, transform 0.2s; /* Transición suave para el color de fondo y tamaño */
+  transition: background-color 0.3s, transform 0.3s; /* Transición suave para el color de fondo y tamaño */
 }
 
 .active:hover {
   background-color: #45a049; /* Color más oscuro al pasar el mouse */
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
 }
 
 .active:active {
-  transform: scale(1.1); /* Aumenta el tamaño al hacer clic */
+  transform: scale(1.2); /* Aumenta el tamaño al hacer clic */
 }
