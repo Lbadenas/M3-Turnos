@@ -6,11 +6,45 @@ import styles from "../appointmentsform/AppointmentsForm.module.css";
 
 const POSTAPPOINTMENT_URL = "http://localhost:3000/appointments/schedule";
 
+const haircutOptions = [
+  {
+    id: 1,
+    imagen:
+      "https://manmedicalinstitute.com/wp-content/uploads/2021/04/mejores-cortes-pelo-segun-rostro.jpg",
+    descripcion: "Corte de Pelo Clásico",
+    valor: "$20",
+    servicio: "Corte de Pelo Clásico",
+  },
+  {
+    id: 2,
+    imagen:
+      "https://www.shutterstock.com/image-photo/closeup-portrait-handsome-smiling-young-600nw-1687157521.jpg",
+    descripcion: "Corte de Pelo Moderno",
+    valor: "$25",
+    servicio: "Corte de Pelo Moderno",
+  },
+  {
+    id: 3,
+    imagen:
+      "https://img.freepik.com/foto-gratis/hombre-barbudo-rubio-positivo-vestido-camisa-cuadros-chaqueta-denim-posando-fondo-gris-vineta_613910-11758.jpg?t=st=1727395511~exp=1727399111~hmac=851af1a945c36b80777f77359a310a3c42774e9f541016c5043d245d973eb583&w=1380",
+    descripcion: "Corte de Pelo con Estilo",
+    valor: "$30",
+    servicio: "Corte de Pelo con Estilo",
+  },
+  {
+    id: 4,
+    imagen:
+      "https://img.freepik.com/foto-gratis/nino-alto-angulo-cortandose-pelo-salon_23-2149870379.jpg",
+    descripcion: "Corte de Pelo para Niños",
+    valor: "$15",
+    servicio: "Corte de Pelo para Niños",
+  },
+];
+
 export default function AppointmentForm() {
   const navigate = useNavigate();
   const userId = useSelector((state) => state.actualUser?.userData?.user?.id);
 
-  // Redirige a la página de inicio si no hay un usuario autenticado
   useEffect(() => {
     if (!userId) {
       navigate("/");
@@ -27,7 +61,6 @@ export default function AppointmentForm() {
   const [appointment, setAppointment] = useState(initialState);
   const [errors, setErrors] = useState({});
 
-  // Valida la cita y retorna errores si los hay
   const validateAppointment = ({ date, description }) => {
     const errors = {};
     if (!date) {
@@ -36,22 +69,16 @@ export default function AppointmentForm() {
       errors.date = "La fecha seleccionada es un fin de semana";
     }
     if (!description) {
-      errors.description = "Ingresar descripción";
-    } else if (description.length < 5) {
-      errors.description = "Descripción de al menos 5 caracteres";
-    } else if (description.length > 25) {
-      errors.description = "Descripción de no más de 25 caracteres";
+      errors.description = "Seleccionar un servicio";
     }
     return errors;
   };
 
-  // Verifica si la fecha es un fin de semana
   const isWeekend = (date) => {
     const day = new Date(date).getDay();
     return day === 6 || day === 0;
   };
 
-  // Maneja los cambios en los campos del formulario
   const handleChange = (event) => {
     const { name, value } = event.target;
     setAppointment((prevAppointment) => ({
@@ -59,12 +86,10 @@ export default function AppointmentForm() {
       [name]: value,
     }));
 
-    // Validación en tiempo real
     const newErrors = validateAppointment({ ...appointment, [name]: value });
     setErrors(newErrors);
   };
 
-  // Maneja el envío del formulario
   const handleSubmit = (event) => {
     event.preventDefault();
     const newAppointment = {
@@ -74,14 +99,12 @@ export default function AppointmentForm() {
       userId,
     };
 
-    // Validación antes del envío
     const validationErrors = validateAppointment(newAppointment);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
-    // Envío de datos a la API
     axios
       .post(POSTAPPOINTMENT_URL, newAppointment)
       .then(({ data }) => {
@@ -94,11 +117,9 @@ export default function AppointmentForm() {
       });
   };
 
-  // Horas y minutos predefinidos para el selector
   const validateHours = ["09", "10", "11", "12", "13", "14", "15", "16", "17"];
   const validateMinutes = ["00", "30"];
 
-  // Obtiene la fecha de mañana en formato ISO
   const getTomorrow = () => {
     const today = new Date();
     const tomorrow = new Date(today);
@@ -106,7 +127,6 @@ export default function AppointmentForm() {
     return tomorrow.toISOString().split("T")[0];
   };
 
-  // Obtiene la fecha dentro de 14 días en formato ISO
   const getFourteenDaysAhead = () => {
     const today = new Date();
     const fourteenDaysAhead = new Date(today);
@@ -168,17 +188,22 @@ export default function AppointmentForm() {
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="description" className={styles.label}>
-              Descripción
+              Seleccionar Servicio
             </label>
-            <input
-              type="text"
+            <select
               id="description"
               name="description"
               value={appointment.description}
-              placeholder="Ingresar descripción"
               onChange={handleChange}
-              className={styles.input}
-            />
+              className={styles.select}
+            >
+              <option value="">Seleccione un servicio</option>
+              {haircutOptions.map((option) => (
+                <option key={option.id} value={option.descripcion}>
+                  {option.descripcion} - {option.valor}
+                </option>
+              ))}
+            </select>
             {errors.description && (
               <span className={styles.error}>{errors.description}</span>
             )}

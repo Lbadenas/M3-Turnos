@@ -90,13 +90,14 @@ function Register() {
 
     axios
       .post(POSTUSER_URL, userData)
-      .then(({ data, status }) => {
+      .then(({ data }) => {
         console.log(data);
-        console.log(status, "esto es status");
         alert(data.message);
         setUser(initialState);
         setErrors({});
-        navigate("/login"); // Redirigir a /login después de un registro exitoso
+
+        // Redirigir a /login después de un registro exitoso
+        navigate("/");
       })
       .catch((error) => alert(error.message));
   };

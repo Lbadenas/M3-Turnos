@@ -33,7 +33,11 @@ export default function Appointment() {
         .get(`${GETUSERBYID_URL}${actualUserID}`)
         .then((response) => response.data)
         .then((actualUser) => {
-          dispatch(setUserAppointments(actualUser.appointments));
+          // Filtra las citas canceladas antes de almacenarlas en el estado
+          const activeAppointments = actualUser.appointments.filter(
+            (appointment) => appointment.status === "active",
+          );
+          dispatch(setUserAppointments(activeAppointments));
         })
         .catch((error) => console.log(error.message));
     }
@@ -45,19 +49,17 @@ export default function Appointment() {
       .then((response) => response.data)
       .then((data) => {
         console.log("Appointment cancelled:", data); // Depuración
-        // Actualizar los turnos desde el back
-        return axios.get(GETUSERBYID_URL + actualUserID);
-      })
-      .then((response) => response.data.appointments)
-      .then((appointments) => {
-        dispatch(setUserAppointments(appointments.appointments));
+        // Filtra las citas canceladas
+        const updatedAppointments = appointments.filter(
+          (appointment) => appointment.id !== appointmentId,
+        );
+        dispatch(setUserAppointments(updatedAppointments)); // Actualiza el estado
       })
       .catch((error) => console.log(error.message));
   };
 
   return (
     <div>
-      <h1 className={styles.title}>MIS RESERVAS</h1>
       <div className={styles.container}>
         {appointments.length > 0 ? (
           appointments.map((appointment) => (
@@ -70,11 +72,20 @@ export default function Appointment() {
               status={appointment.status}
               description={appointment.description}
               handleAppointmentCancel={handleAppointmentCancel}
-              className={styles.card} // Aplica la clase CSS
+              className={styles.card}
             />
           ))
         ) : (
-          <p className={styles.noAppointments}>No tienes reservas.</p>
+          <div className={styles.overlay}>
+            <div className={styles.noAppointmentsContainer}>
+              <p className={styles.noAppointments}>No tienes reservas.</p>
+              <img
+                src="https://titulae.es/wp-content/uploads/2021/11/grado-superior-peluqueria.jpg"
+                alt="No hay reservas"
+                className={styles.noAppointmentsImage}
+              />
+            </div>
+          </div>
         )}
       </div>
     </div>

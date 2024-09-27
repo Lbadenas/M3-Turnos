@@ -14,7 +14,7 @@
 
 /* Ajustes a las tarjetas */
 .CardTurnos {
-  background-color: #333; /* Fondo oscuro para la tarjeta */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada para resaltar */
   padding: 20px;
@@ -28,13 +28,10 @@
   width: 100%; /* Asegura que la tarjeta ocupe todo el ancho disponible dentro de la columna */
   max-width: 250px; /* Ancho máximo de la tarjeta */
   height: auto; /* Altura automática basada en el contenido */
-  background-image: url("https://static.vecteezy.com/system/resources/previews/013/277/783/non_2x/stylish-black-wavy-background-for-business-cards-presentations-banners-etc-vector.jpg");
-  background-size: cover; /* Ajusta la imagen para cubrir el área de la tarjeta */
-  background-position: center; /* Centra la imagen en la tarjeta */
   color: white; /* Color de texto blanco para resaltar */
 }
-
 /* Asegura que las imágenes se ajusten adecuadamente */
+
 .CardTurnos img {
   width: 100px; /* Ancho de la imagen */
   height: 100px; /* Altura de la imagen */
@@ -61,15 +58,6 @@
 }
 
 /* Efectos de hover para la tarjeta */
-.CardTurnos:hover {
-  transform: scale(1.05) translateY(-5px); /* Escala y desplaza hacia arriba */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
-}
-
-.CardTurnos:hover .datos span {
-  color: #ffcc00; /* Color del texto al pasar el cursor */
-}
 
 /* Estilos para el estado activo */
 .active {

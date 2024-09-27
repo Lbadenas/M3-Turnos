@@ -4,27 +4,35 @@
 .mainContainer {
   border-radius: 10px; /* Bordes redondeados */
   padding: 20px; /* Espaciado interno */
-  width: 350px; /* Ancho del formulario */
-  margin: 0 auto; /* Centrar horizontalmente */
-  text-align: center; /* Centrar el contenido del formulario */
-  margin-top: 50px; /* Espacio desde la parte superior */
+  width: 100%; /* Ajusta el ancho al 100% */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  display: flex; /* Usar flexbox para centrar */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
   position: relative; /* Posición relativa para que el fondo no se desplace */
+  background-image: url("https://img.archiexpo.es/images_ae/projects/images-om/71682-15501482.jpg"); /* Imagen de fondo */
+  background-size: cover; /* Cubrir toda el área del contenedor */
+  background-position: center; /* Centrar la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evitar la repetición de la imagen */
 }
 
 /* Estilos para el formulario de reserva */
 .AppointmentForm {
-  background-color: #f3ecec;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro más transparente */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra del formulario */
   padding: 20px;
   max-width: 600px; /* Aumenta el ancho máximo del formulario */
   width: 100%; /* Ajusta el ancho al 100% del contenedor */
   font-family: Arial, sans-serif;
+  position: relative; /* Asegúrate de que el formulario esté en el flujo normal */
+  z-index: 1; /* Asegura que el formulario esté por encima de la imagen de fondo */
 }
 
 .AppointmentForm h2 {
   font-family: "Play", sans-serif;
   text-align: center; /* Centra el título del formulario */
+  color: white; /* Cambia el color del texto a blanco */
 }
 
 .formGroup {
@@ -69,4 +77,10 @@
 
 .button:hover {
   background-color: #0056b3;
+}
+
+/* Estilos para la selección de tiempo */
+.timeSelectors {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los selectores */
 }
