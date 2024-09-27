@@ -22,7 +22,7 @@ const servicios = [
   {
     id: 3,
     imagen:
-      "https://www.shutterstock.com/image-photo/serious-handsome-young-african-man-600nw-2432719429.jpg",
+      "https://img.freepik.com/foto-gratis/hombre-barbudo-rubio-positivo-vestido-camisa-cuadros-chaqueta-denim-posando-fondo-gris-vineta_613910-11758.jpg?t=st=1727395511~exp=1727399111~hmac=851af1a945c36b80777f77359a310a3c42774e9f541016c5043d245d973eb583&w=1380",
     descripcion: "Corte de Pelo con Estilo",
     valor: "$30",
     servicio: "Corte de Pelo con Estilo",
@@ -80,6 +80,14 @@ const Servicios = () => {
             look que deseas. No te pierdas nuestro exclusivo servicio de corte
             para niños, ¡donde la diversión y el estilo se encuentran!
           </p>
+
+          {/* Imagen entre la descripción y el botón */}
+          <img
+            src="https://cdn1.treatwell.net/images/view/v2.i8861611.w360.h240.xA21D5F13/"
+            alt="Agendar una cita en la peluquería" // Cambia esto por la descripción adecuada
+            className={styles.imagenEntre} // Asegúrate de agregar estilos para esta clase
+          />
+
           <button
             onClick={handleRegisterRedirect} // Solo redirecciona
             className={styles.exclusiveButton} // Usar la clase CSS para el estilo

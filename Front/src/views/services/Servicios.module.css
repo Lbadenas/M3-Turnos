@@ -62,7 +62,7 @@
 }
 /* Estilo de botón exclusivo */
 .exclusiveButton {
-  background-color: #5c4033; /* Color caoba oscuro que se asemeja a la madera */
+  background-color: #5c4033; /* Color caoba oscuro */
   color: white; /* Color del texto */
   border: none; /* Quitar borde */
   border-radius: 5px; /* Bordes redondeados */
@@ -87,21 +87,37 @@
 
 /* Estilo de descripción y botón */
 .descripcionContainer {
-  margin-top: 40px; /* Espacio superior */
-  width: 30vw; /* Ancho del 20% del ancho de la ventana */
-  height: 30vw; /* Altura igual al ancho para mantenerlo cuadrado */
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo con transparencia */
+  margin-top: 15px; /* Espacio superior */
+  width: 100%; /* Ancho completo */
+  max-width: 600px; /* Ancho máximo para la descripción */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Fondo con mayor opacidad para mejor legibilidad */
   color: white; /* Color del texto */
-  padding: 20px; /* Espaciado interno reducido */
+  padding: 30px; /* Espaciado interno ajustado */
   display: flex;
   flex-direction: column; /* Coloca los elementos en columna */
   justify-content: center; /* Centra el contenido */
   align-items: center; /* Alinea el contenido al centro */
+  border-radius: 10px; /* Bordes redondeados */
 }
 
 /* Estilo de la descripción */
 .descripcion {
-  margin: 50px 10px 20px; /* Espacio superior y lateral, y margen inferior de 20px */
-  font-size: 1rem; /* Tamaño de fuente ajustado si es necesario */
+  margin: 20px 0; /* Espacio superior e inferior */
+  font-size: 1.1rem; /* Tamaño de fuente ajustado */
   text-align: center; /* Centrar el texto */
+  letter-spacing: 0.5px; /* Espaciado entre letras */
+  line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* Estilo de la imagen entre la descripción y el botón */
+.imagenEntre {
+  width: 100%; /* Ajusta el tamaño a 100% del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin: 20px 0; /* Espaciado arriba y abajo */
+  border-radius: 10px; /* Bordes redondeados opcionalmente */
 }

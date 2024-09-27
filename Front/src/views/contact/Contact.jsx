@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./Contact.module.css";
 import emailjs from "emailjs-com";
 
@@ -9,7 +9,6 @@ function Contact() {
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [showForm, setShowForm] = useState(false);
 
   // Función para manejar el cambio de los campos del formulario
   const handleChange = (e) => {
@@ -23,14 +22,20 @@ function Contact() {
   // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsLoading(true);
+
+    // Crear un objeto con los datos del formulario
+    const emailData = {
+      to_email: formData.email, // Agregar el correo electrónico del formulario
+      name: formData.name,
+      message: formData.message,
+    };
 
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formData,
+        emailData, // Usar el objeto con el correo
         import.meta.env.VITE_EMAILJS_USER_ID,
       )
       .then(
@@ -52,21 +57,9 @@ function Contact() {
       );
   };
 
-  // UseEffect para manejar la carga de la imagen de fondo
-  useEffect(() => {
-    const backgroundImage = new Image();
-    backgroundImage.src =
-      "https://images.pexels.com/photos/3993320/pexels-photo-3993320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
-    backgroundImage.onload = () => {
-      setShowForm(true); // Muestra el formulario después de que la imagen esté cargada
-    };
-  }, []);
-
   return (
     <div className={styles.backgroundContainer}>
-      <div
-        className={`${styles.contactContainer} ${showForm ? styles.show : ""}`}
-      >
+      <div className={styles.contactContainer}>
         <h1>Contacto</h1>
         <form onSubmit={handleSubmit}>
           {console.log("formData", formData)}
