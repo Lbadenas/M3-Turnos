@@ -10,19 +10,62 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.login = exports.registerUsers = exports.getUserByID = exports.getAllUsers = void 0;
+const usersServices_1 = require("../services/usersServices");
+const credentialsServices_1 = require("../services/credentialsServices");
 const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.status(200).json({ message: "obtener el listado de todos los usuarios" });
+    try {
+        const users = yield (0, usersServices_1.getAllUsersServices)();
+        res.status(200).json(users);
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
 exports.getAllUsers = getAllUsers;
 const getUserByID = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.status(200).json({ message: "obtener el listado del usuario por id" });
+    try {
+        const { id } = req.params;
+        const user = yield (0, usersServices_1.getUserByIdServices)(Number(id));
+        res.status(200).json(user);
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
 exports.getUserByID = getUserByID;
 const registerUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.status(200).json({ message: "registro de un nuevo usuario" });
+    try {
+        const { name, email, birthdate, nDni, username, password } = req.body;
+        const existingUser = yield (0, usersServices_1.CheckExistingUserService)(username, email);
+        if (existingUser)
+            return res.status(400).json({ message: "El usuario ya existe" });
+        const newUser = yield (0, usersServices_1.CreateUserService)({
+            name,
+            email,
+            birthdate,
+            nDni,
+            username,
+            password,
+        });
+        res.status(201).json({ message: "usuario creado con exito" });
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
 exports.registerUsers = registerUsers;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.status(200).json({ message: "login del usuario en la aplicacion" });
+    try {
+        const { username, password } = req.body;
+        const crendetial = yield (0, credentialsServices_1.validateCredential)({
+            username,
+            password,
+        });
+        const user = yield (0, usersServices_1.findUserCredentialId)(crendetial.id);
+        res.status(200).json({ login: true, user });
+    }
+    catch (error) {
+        res.status(404).json({ message: error.message });
+    }
 });
 exports.login = login;

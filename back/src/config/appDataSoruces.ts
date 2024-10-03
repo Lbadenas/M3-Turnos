@@ -17,4 +17,10 @@ export const AppDataSource = new DataSource({
   entities: [User, Credential, Turn],
   subscribers: [],
   migrations: [],
+  extra: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Importante para evitar errores en conexiones sin un certificado verificado
+    },
+  },
 });
