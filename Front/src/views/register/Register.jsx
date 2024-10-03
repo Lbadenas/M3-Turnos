@@ -25,44 +25,18 @@ function Register() {
   const [errors, setErrors] = useState({});
 
   // VALIDACIONES
-  const validateUser = ({
-    name,
-    email,
-    birthdate,
-    nDni,
-    username,
-    password,
-    confirmPassword,
-  }) => {
+  const validateUser = ({ email, password, confirmPassword }) => {
     const errors = {};
-    if (!name) errors.name = "Por favor, ingresa un nombre";
-    if (!email) errors.email = "Por favor, ingresa un correo electrónico";
-    else {
-      if (!emailRegExp.test(email))
-        errors.email = "Por favor, ingresa un correo electrónico válido";
+    if (!email) {
+      errors.email = "Por favor, ingresa un correo electrónico";
+    } else if (!emailRegExp.test(email)) {
+      errors.email = "Por favor, ingresa un correo electrónico válido";
     }
-    if (!birthdate)
-      errors.birthdate = "Por favor, ingresa una fecha de nacimiento";
-    else {
-      const today = new Date();
-      const birthDate = new Date(birthdate);
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const monthDifference = today.getMonth() - birthDate.getMonth();
-      if (
-        monthDifference < 0 ||
-        (monthDifference === 0 && today.getDate() < birthDate.getDate())
-      ) {
-        age--;
-      }
-      if (age < 18) {
-        errors.birthdate = "Solo mayores de 18 años";
-      }
-    }
-    if (!nDni) errors.nDni = "Por favor, ingresa un número de DNI";
-    if (!username) errors.username = "Por favor, ingresa un nombre de usuario";
-    if (!password) errors.password = "Por favor, ingresa una contraseña";
-    if (confirmPassword !== password)
+
+    if (password !== confirmPassword) {
       errors.confirmPassword = "Las contraseñas no coinciden";
+    }
+
     return errors;
   };
 
@@ -102,8 +76,6 @@ function Register() {
         });
         setUser(initialState);
         setErrors({});
-
-        // Redirigir a / después de un registro exitoso
         navigate("/");
       })
       .catch((error) => {
@@ -126,17 +98,33 @@ function Register() {
   };
 
   const formData = [
-    { label: "Nombre", name: "name", type: "text" },
-    { label: "Nombre de usuario", name: "username", type: "text" },
-    { label: "Contraseña", name: "password", type: "password" },
+    { label: "Nombre", name: "name", type: "text", required: true },
+    {
+      label: "Nombre de usuario",
+      name: "username",
+      type: "text",
+      required: true,
+    },
+    { label: "Contraseña", name: "password", type: "password", required: true },
     {
       label: "Confirmar contraseña",
       name: "confirmPassword",
       type: "password",
+      required: true,
     },
-    { label: "Correo electrónico", name: "email", type: "email" },
-    { label: "Fecha de nacimiento", name: "birthdate", type: "date" },
-    { label: "Número de DNI", name: "nDni", type: "text" },
+    {
+      label: "Correo electrónico",
+      name: "email",
+      type: "email",
+      required: true,
+    },
+    {
+      label: "Fecha de nacimiento",
+      name: "birthdate",
+      type: "date",
+      required: true,
+    },
+    { label: "Número de DNI", name: "nDni", type: "text", required: true },
   ];
 
   return (
@@ -145,9 +133,11 @@ function Register() {
       <h2 className={styles.registroh2}>Registro</h2>
       <hr />
       <form onSubmit={handleSubmit}>
-        {formData.map(({ label, name, type }) => (
+        {formData.map(({ label, name, type, required }) => (
           <div key={name}>
-            <label>{label}</label>
+            <label>
+              {label} {required && <span style={{ color: "red" }}>*</span>}
+            </label>
             <input
               className={styles.inputregistro}
               id={name}
@@ -158,7 +148,7 @@ function Register() {
               onChange={handleChange}
             />
             {errors[name] && (
-              <span style={{ color: "red" }}>{errors[name]}</span>
+              <span className={styles.error}>{errors[name]}</span> // Muestra el mensaje de error
             )}
           </div>
         ))}

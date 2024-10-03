@@ -66,3 +66,9 @@
   border-radius: 50%; /* Redondea la imagen */
   box-shadow: 0 4px 40px rgba(255, 255, 255, 0.6); /* Sombra difusa en blanco */
 }
+
+.error {
+  color: red; /* Puedes cambiar el color si lo deseas */
+  font-size: 12px; /* Tamaño de letra más pequeño */
+  margin-top: 4px; /* Espacio entre el input y el mensaje de error */
+}
