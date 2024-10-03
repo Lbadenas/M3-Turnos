@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2"; // Importa SweetAlert2
 
 const emailRegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const POSTUSER_URL = "http://localhost:3000/users/register";
+const POSTUSER_URL = "https://m3-turnos.onrender.com/users/register";
 
 function Register() {
   const navigate = useNavigate();

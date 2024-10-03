@@ -8,8 +8,8 @@ import styles from "./appointment.module.css"; // Asegúrate de que esta ruta es
 import { format } from "date-fns";
 import { es } from "date-fns/locale"; // Importa la localización en español
 
-const GETUSERBYID_URL = "http://localhost:3000/users/";
-const POSTCANCEL_URL = "http://localhost:3000/appointments/cancel/";
+const GETUSERBYID_URL = "https://m3-turnos.onrender.com/users/";
+const POSTCANCEL_URL = "https://m3-turnos.onrender.com/appointments/cancel/";
 
 export default function Appointment() {
   const actualUserID = useSelector(
