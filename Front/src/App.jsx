@@ -10,6 +10,7 @@ import AppointmentForm from "./components/appointmentsform/AppointmentsForm";
 import Contact from "./views/contact/Contact";
 import Servicios from "./views/services/Servicios";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import Footer from "./components/footer/Footer";
 
 import "./App.css";
 
@@ -34,6 +35,8 @@ function App() {
               <Route path="/appointmentsform" element={<AppointmentForm />} />
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
+
+            <Footer />
           </div>
         </CSSTransition>
       </TransitionGroup>
