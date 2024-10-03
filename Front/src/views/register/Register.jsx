@@ -35,12 +35,14 @@ function Register() {
     confirmPassword,
   }) => {
     const errors = {};
-    if (!name) errors.name = "Ingresar un nombre";
-    if (!email) errors.email = "Ingresar un email";
+    if (!name) errors.name = "Por favor, ingresa un nombre";
+    if (!email) errors.email = "Por favor, ingresa un correo electrónico";
     else {
-      if (!emailRegExp.test(email)) errors.email = "Ingresar un email válido";
+      if (!emailRegExp.test(email))
+        errors.email = "Por favor, ingresa un correo electrónico válido";
     }
-    if (!birthdate) errors.birthdate = "Ingresar una fecha de nacimiento";
+    if (!birthdate)
+      errors.birthdate = "Por favor, ingresa una fecha de nacimiento";
     else {
       const today = new Date();
       const birthDate = new Date(birthdate);
@@ -53,14 +55,14 @@ function Register() {
         age--;
       }
       if (age < 18) {
-        errors.birthdate = "Mayores de 18 únicamente";
+        errors.birthdate = "Solo mayores de 18 años";
       }
     }
-    if (!nDni) errors.nDni = "Ingresar un número de DNI";
-    if (!username) errors.username = "Ingresar un nombre de usuario";
-    if (!password) errors.password = "Ingresar una contraseña";
+    if (!nDni) errors.nDni = "Por favor, ingresa un número de DNI";
+    if (!username) errors.username = "Por favor, ingresa un nombre de usuario";
+    if (!password) errors.password = "Por favor, ingresa una contraseña";
     if (confirmPassword !== password)
-      errors.confirmPassword = "Contraseña no coincide";
+      errors.confirmPassword = "Las contraseñas no coinciden";
     return errors;
   };
 
@@ -101,7 +103,7 @@ function Register() {
         setUser(initialState);
         setErrors({});
 
-        // Redirigir a /login después de un registro exitoso
+        // Redirigir a / después de un registro exitoso
         navigate("/");
       })
       .catch((error) => {
@@ -125,15 +127,15 @@ function Register() {
 
   const formData = [
     { label: "Nombre", name: "name", type: "text" },
-    { label: "Username", name: "username", type: "text" },
-    { label: "Password", name: "password", type: "password" },
+    { label: "Nombre de usuario", name: "username", type: "text" },
+    { label: "Contraseña", name: "password", type: "password" },
     {
-      label: "Confirmar Contraseña",
+      label: "Confirmar contraseña",
       name: "confirmPassword",
       type: "password",
     },
-    { label: "Correo", name: "email", type: "email" },
-    { label: "Fecha De Nacimiento", name: "birthdate", type: "date" },
+    { label: "Correo electrónico", name: "email", type: "email" },
+    { label: "Fecha de nacimiento", name: "birthdate", type: "date" },
     { label: "Número de DNI", name: "nDni", type: "text" },
   ];
 
