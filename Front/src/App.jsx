@@ -10,7 +10,7 @@ import AppointmentForm from "./components/appointmentsform/AppointmentsForm";
 import Contact from "./views/contact/Contact";
 import Servicios from "./views/services/Servicios";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import Footer from "./components/footer/footer";
+
 import "./App.css";
 
 function App() {
@@ -37,8 +37,6 @@ function App() {
           </div>
         </CSSTransition>
       </TransitionGroup>
-
-      <Footer />
     </div>
   );
 }
