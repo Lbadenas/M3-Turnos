@@ -22,7 +22,7 @@ const servicios = [
   {
     id: 3,
     imagen:
-      "https://img.freepik.com/foto-gratis/hombre-barbudo-rubio-positivo-vestido-camisa-cuadros-chaqueta-denim-posando-fondo-gris-vineta_613910-11758.jpg?t=st=1727395511~exp=1727399111~hmac=851af1a945c36b80777f77359a310a3c42774e9f541016c5043d245d973eb583&w=1380",
+      "https://media.istockphoto.com/id/626416292/es/foto/las-manos-de-corte-de-cabello-de-joven-barber-que-hombre-atractivo.jpg?s=612x612&w=0&k=20&c=1GCsUUZn1hJEACfIrcCMJ-ThOsV75NXZHl1YzQMqHbo=",
     descripcion: "Corte de Pelo con Estilo",
     valor: "$30",
     servicio: "Corte de Pelo con Estilo",

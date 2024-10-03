@@ -18,7 +18,7 @@ function Home() {
         {/* Imagen como tarjeta dentro de la descripción, ahora debajo del texto */}
         <div className={styles.imageCard}>
           <img
-            src="https://img.freepik.com/foto-gratis/hombre-guapo-cortando-barba-salon-peluqueria_1303-20932.jpg?w=1380&t=st=1727393130~exp=1727393730~hmac=3c53d293ae220c8924dadfdd219ac5065f770e4d761217a326b823799861473c"
+            src="https://media.istockphoto.com/id/1030251504/es/foto/peluquer%C3%ADa-corte-de-pelo-de-los-clientes-en-el-sal%C3%B3n-de.jpg?s=612x612&w=0&k=20&c=c3ftsfxYy5G6Bq4XxuP_K3r7qf2zyw4UsFeu89CY_LA="
             alt="Corte de cabello"
             className={styles.image}
           />
